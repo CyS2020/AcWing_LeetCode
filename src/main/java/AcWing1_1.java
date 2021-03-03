@@ -12,18 +12,14 @@ import java.util.Arrays;
 
 class AcWing1_1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            String line = input.readLine();
-            int n = Integer.parseInt(line);
-            line = input.readLine();
-            int[] q = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-            quick_sort(q, 0, n - 1);
-            Arrays.stream(q).forEach(k -> System.out.print(k + " "));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String line = input.readLine();
+        int n = Integer.parseInt(line);
+        line = input.readLine();
+        int[] q = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
+        quick_sort(q, 0, n - 1);
+        Arrays.stream(q).forEach(k -> System.out.print(k + " "));
     }
 
     public static void quick_sort(int[] q, int l, int r) {
