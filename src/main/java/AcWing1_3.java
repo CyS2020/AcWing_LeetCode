@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/3/2
  * 描述：归并排序
- * 口诀：确定中间分界点，递归处理左和右，三个while来归并，左到mid右到r
+ * 口诀：确定中间分界点，递归处理左和右，三个while来归并，辅助数组回原地
  */
 public class AcWing1_3 {
 
