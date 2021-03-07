@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 /**
  * @author: CyS2020
  * @date: 2021/3/5
- * 描述：高精度
+ * 描述：高精度除法
  * 口诀：人工计算，进位借位
  */
 class AcWing1_10 {
