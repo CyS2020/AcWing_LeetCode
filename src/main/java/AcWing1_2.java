@@ -37,7 +37,7 @@ public class AcWing1_2 {
                 swap(q, i, j);
             }
         }
-        if (k <= j) {
+        if (j >= k) {
             return findKth(q, l, j, k);
         }
         return findKth(q, j + 1, r, k);
