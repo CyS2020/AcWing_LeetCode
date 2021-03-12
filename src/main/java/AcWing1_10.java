@@ -47,6 +47,7 @@ class AcWing1_10 {
             this.r = r;
         }
 
+        @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
             c.forEach(sb::append);
