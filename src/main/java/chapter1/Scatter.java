@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +14,7 @@ import java.util.stream.Collectors;
  * 描述：离散化
  * 口诀：排序去重加二分，区间由大化为小
  */
-public class AcWing1_19 {
+public class Scatter {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

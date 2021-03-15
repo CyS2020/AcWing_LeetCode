@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.Arrays;
  * 描述：逆序对数量
  * 口诀：归并排序
  */
-public class AcWing1_4 {
+public class ReverseOrders {
 
     public static long count;
 

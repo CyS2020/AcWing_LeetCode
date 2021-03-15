@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.Arrays;
  * 描述：第k个数
  * 口诀：快速排序与分治
  */
-public class AcWing1_2 {
+public class KthNumber {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

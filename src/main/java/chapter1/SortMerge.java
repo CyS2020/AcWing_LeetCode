@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.Arrays;
  * 描述：归并排序
  * 口诀：确定中间分界点，递归处理左和右，三个while来归并，辅助数组回原地
  */
-public class AcWing1_3 {
+public class SortMerge {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

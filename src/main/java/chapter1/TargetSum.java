@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.Arrays;
  * 描述：数组元素的目标和
  * 口诀：循环数组双指针，小i小j需check
  */
-public class AcWing1_16 {
+public class TargetSum {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,19 +13,19 @@ import java.util.TreeSet;
  * 描述：区间合并
  * 口诀：左右端点来排序，策略多数是贪心
  */
-public class AcWing1_20 {
+public class IntervalMerge {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
-        Set<Pair> gaps = new TreeSet<>();
+        Set<Pair> interval = new TreeSet<>();
         while ((line = input.readLine()) != null) {
             int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-            gaps.add(new Pair(arr[0], arr[1]));
+            interval.add(new Pair(arr[0], arr[1]));
         }
         int count = 0;
         int ed = Integer.MIN_VALUE;
-        for (Pair pair : gaps) {
+        for (Pair pair : interval) {
             int left = pair.left;
             int right = pair.right;
             if (ed < left) {

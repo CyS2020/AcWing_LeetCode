@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.Arrays;
  * 描述：位运算
  * 口诀：取出k位二进制，返回最后1位置
  */
-public class AcWing1_18 {
+public class OperationBit {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

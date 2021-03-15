@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +12,7 @@ import java.util.Arrays;
  * 口诀：确定中间分界点，左右指针往外扩，左小右大移指针，递归处理左和右
  */
 
-class AcWing1_1 {
+class SortQuick {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

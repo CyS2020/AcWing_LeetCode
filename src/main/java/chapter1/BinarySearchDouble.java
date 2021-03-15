@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +10,7 @@ import java.io.InputStreamReader;
  * 描述：浮点数二分求立方根
  * 口诀：无边界问题，有精度问题
  */
-public class AcWing1_6 {
+public class BinarySearchDouble {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

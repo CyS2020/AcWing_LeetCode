@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +13,7 @@ import java.util.Set;
  * 描述：最长连续不重复子序列
  * 口诀：循环数组双指针，左i右j需check
  */
-public class AcWing1_15 {
+public class LongestSubSeq {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

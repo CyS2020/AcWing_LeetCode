@@ -1,3 +1,5 @@
+package chapter1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +15,7 @@ import java.util.stream.Collectors;
  * 口诀：人工计算，进位借位
  * 等同于：BigDecimal.subtract()方法
  */
-class AcWing1_8 {
+class OperationSub {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
