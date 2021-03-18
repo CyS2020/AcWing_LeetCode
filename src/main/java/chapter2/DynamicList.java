@@ -57,19 +57,15 @@ public class DynamicList {
         while (cur.index != k) {
             cur = cur.next;
         }
-        Node node = new Node(value, index);
-        node.next = cur.next;
-        cur.next = node;
+        Node newNode = new Node(value, index);
+        newNode.next = cur.next;
+        cur.next = newNode;
     }
 
     public static void addToHead(int value) {
-        Node node = new Node(value, index);
-        if (head == null) {
-            head = node;
-            return;
-        }
-        node.next = head;
-        head = node;
+        Node newNode = new Node(value, index);
+        newNode.next = head;
+        head = newNode;
     }
 
     public static class Node {
