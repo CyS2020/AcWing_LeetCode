@@ -124,7 +124,6 @@ public class DynamicBiList {
         cur.next = newNode;
     }
 
-
     public static class Node {
         int value;
         int index;

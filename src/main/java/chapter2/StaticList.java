@@ -16,7 +16,7 @@ public class StaticList {
 
     public static int[] ne = new int[100010];
 
-    public static int head = -1, idx = 1;
+    public static int head = -1, index = 1;
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -49,14 +49,14 @@ public class StaticList {
     }
 
     public static void addToKth(int k, int value) {
-        e[idx] = value;
-        ne[idx] = ne[k];
-        ne[k] = idx++;
+        e[index] = value;
+        ne[index] = ne[k];
+        ne[k] = index++;
     }
 
     public static void addToHead(int value) {
-        e[idx] = value;
-        ne[idx] = head;
-        head = idx++;
+        e[index] = value;
+        ne[index] = head;
+        head = index++;
     }
 }
