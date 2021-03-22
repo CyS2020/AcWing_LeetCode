@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
  * @author: CyS2020
  * @date: 2021/3/17
  * 描述：双向链表
+ * 口诀：先找儿子后找爹，全局边界初为null，边界增删特处理，游标从0k-1
  */
 public class DynamicBiList {
 

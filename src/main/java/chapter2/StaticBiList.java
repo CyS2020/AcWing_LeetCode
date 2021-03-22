@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
  * @author: CyS2020
  * @date: 2021/3/21
  * 描述：静态双链表
+ * 口诀：数组索引分内存
  */
 public class StaticBiList {
 
