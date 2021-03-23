@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author: CyS2020
@@ -24,22 +22,44 @@ public class MonotoneQueue {
         line = input.readLine();
         arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        Deque<Integer> queue = new LinkedList<>();
-        List<Integer> maxList = new LinkedList<>();
-        for (int i = 0; i < k - 1; i++) {
-            queue.add(arr[i]);
+        Deque<Pair> queue = new LinkedList<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (!queue.isEmpty() && i - queue.peekFirst().index + 1 > k) {
+                queue.pollFirst();
+            }
+            while (!queue.isEmpty() && queue.peekLast().value >= arr[i]) {
+                queue.pollLast();
+            }
+            queue.addLast(new Pair(i, arr[i]));
+            if (i >= k - 1) {
+                System.out.print(queue.peekFirst().value + " ");
+            }
         }
-        for (int i = k - 1; i < arr.length; i++) {
-            queue.addLast(arr[i]);
-            int min = Collections.min(queue);
-            int max = Collections.max(queue);
-            System.out.print(min + " ");
-            maxList.add(max);
-            queue.pollFirst();
-        }
+
         System.out.println();
-        for (int i : maxList) {
-            System.out.print(i + " ");
+        queue.clear();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (!queue.isEmpty() && i - queue.peekFirst().index + 1 > k) {
+                queue.pollFirst();
+            }
+            while (!queue.isEmpty() && queue.peekLast().value <= arr[i]) {
+                queue.pollLast();
+            }
+            queue.addLast(new Pair(i, arr[i]));
+            if (i >= k - 1) {
+                System.out.print(queue.peekFirst().value + " ");
+            }
+        }
+    }
+
+    public static class Pair {
+        int index;
+        int value;
+
+        public Pair(int index, int value) {
+            this.index = index;
+            this.value = value;
         }
     }
 }
