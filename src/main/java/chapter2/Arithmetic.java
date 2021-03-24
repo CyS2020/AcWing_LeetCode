@@ -12,7 +12,7 @@ import java.util.Map;
  * @author: CyS2020
  * @date: 2021/3/22
  * 描述：四则运算
- * 口诀：括号乘除优先级，从右往左来计算
+ * 口诀：右括乘除优先级，从右往左来计算
  */
 public class Arithmetic {
 
