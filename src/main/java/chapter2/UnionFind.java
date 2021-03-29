@@ -38,10 +38,9 @@ public class UnionFind {
     }
 
     public static void merge(int a, int b) {
-        if (find(a) == find(b)) {
-            return;
+        if (find(a) != find(b)) {
+            father[find(a)] = find(b);
         }
-        father[find(a)] = find(b);
     }
 
     public static boolean query(int a, int b) {
