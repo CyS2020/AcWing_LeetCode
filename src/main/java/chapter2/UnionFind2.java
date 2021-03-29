@@ -7,12 +7,13 @@ import java.io.InputStreamReader;
 /**
  * @author: CyS2020
  * @date: 2021/3/29
- * 描述：并查集
- * 口诀：递归更新父节点，find函数最核心
+ * 描述：连通块数量
  */
-public class UnionFind {
+public class UnionFind2 {
 
     public static int[] father = new int[100010];
+
+    public static int[] size = new int[100010];
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -20,18 +21,23 @@ public class UnionFind {
         int n = Integer.parseInt(line.split(" ")[0]);
         for (int i = 1; i <= n; i++) {
             father[i] = i;
+            size[i] = 1;
         }
         while ((line = input.readLine()) != null) {
             String[] arr = line.split(" ");
             int a = Integer.parseInt(arr[1]);
-            int b = Integer.parseInt(arr[2]);
+            int b = arr.length == 3 ? Integer.parseInt(arr[2]) : 0;
             switch (arr[0]) {
-                case "M":
+                case "C":
                     merge(a, b);
                     break;
-                case "Q":
+                case "Q1":
                     boolean isSame = query(a, b);
                     System.out.println(isSame ? "Yes" : "No");
+                    break;
+                case "Q2":
+                    int count = count(a);
+                    System.out.println(count);
 
             }
         }
@@ -39,12 +45,17 @@ public class UnionFind {
 
     public static void merge(int a, int b) {
         if (find(a) != find(b)) {
+            size[find(b)] += size[find(a)];
             father[find(a)] = find(b);
         }
     }
 
     public static boolean query(int a, int b) {
         return find(a) == find(b);
+    }
+
+    public static int count(int a) {
+        return size[find(a)];
     }
 
     // 路径压缩
