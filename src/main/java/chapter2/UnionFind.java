@@ -32,7 +32,7 @@ public class UnionFind {
                 case "Q":
                     boolean isSame = query(a, b);
                     System.out.println(isSame ? "Yes" : "No");
-
+                    break;
             }
         }
     }

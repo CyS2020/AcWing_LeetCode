@@ -32,6 +32,7 @@ public class StaticList {
                     break;
                 case "D":
                     deleteKth(Integer.parseInt(arr[1]));
+                    break;
             }
         }
         for (int i = head; i != -1; i = ne[i]) {

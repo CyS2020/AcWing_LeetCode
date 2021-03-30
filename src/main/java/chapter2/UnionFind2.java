@@ -38,6 +38,7 @@ public class UnionFind2 {
                 case "Q2":
                     int count = count(a);
                     System.out.println(count);
+                    break;
 
             }
         }
