@@ -32,9 +32,6 @@ public class SortHeap {
     }
 
     public static void down(int[] arr, int u, int n) {
-        if (u >= n) {
-            return;
-        }
         int t = u;
         if (2 * u + 1 <= n && arr[2 * u + 1] < arr[t]) {
             t = 2 * u + 1;
@@ -46,7 +43,6 @@ public class SortHeap {
             swap(arr, u, t);
             down(arr, t, n);
         }
-
     }
 
     public static void swap(int[] arr, int i, int j) {
