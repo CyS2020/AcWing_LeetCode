@@ -27,9 +27,11 @@ public class IndexQueue {
         this.hp = new int[n + 1];
     }
 
-    public void poll() {
+    public int poll() {
+        int item = items[ph[1]];
         swap(1, headIdx--);
         down(1);
+        return item;
     }
 
     public int peek() {
