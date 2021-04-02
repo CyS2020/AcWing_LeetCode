@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
  * @author: CyS2020
  * @date: 2021/3/31
  * 描述：索引优先队列
+ * 口诀：某位锁存数据值，某值所在索引位，元素数组不可变
  */
 public class IndexQueue {
     // 元素数组
@@ -45,30 +46,33 @@ public class IndexQueue {
         up(headIdx);
     }
 
+    // 更一般情况为删除某个元素
     public void delete(int kth) {
-        swap(hp[kth], headIdx--);
-        down(hp[kth]);
-        up(hp[kth]);
+        int u = hp[kth];
+        swap(u, headIdx--);
+        down(u);
+        up(u);
     }
 
     public void update(int kth, int newItem) {
         items[kth] = newItem;
-        down(hp[kth]);
-        up(hp[kth]);
+        int u = hp[kth];
+        down(u);
+        up(u);
     }
 
-    private void swap(int a, int b) {
+    private void swap(int i, int j) {
         // 堆变化
-        int tmp = ph[a];
-        ph[a] = ph[b];
-        ph[b] = tmp;
+        int tmp = ph[i];
+        ph[i] = ph[j];
+        ph[j] = tmp;
         // 堆中位置变化
-        hp[ph[a]] = a;
-        hp[ph[b]] = b;
+        hp[ph[i]] = i;
+        hp[ph[j]] = j;
     }
 
     private void up(int u) {
-        while (u > 1 && compareTo(u / 2, u) > 0) {
+        while (u / 2 > 0 && compareTo(u / 2, u) > 0) {
             swap(u / 2, u);
             u = u / 2;
         }

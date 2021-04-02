@@ -17,27 +17,30 @@ public class SortHeap {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-        int n = arr[0] - 1;
+        int n = arr[0];
         int m = arr[1];
+        arr = new int[n + 1];
         line = input.readLine();
-        arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-        for (int i = n / 2; i >= 0; i--) {
+        int[] array = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
+        System.arraycopy(array, 0, arr, 1, n);
+
+        for (int i = n / 2; i > 0; i--) {
             down(arr, i, n);
         }
         for (int i = 0; i < m; i++) {
             System.out.print(arr[0] + " ");
-            swap(arr, 0, n--);
-            down(arr, 0, n);
+            swap(arr, 1, n--);
+            down(arr, 1, n);
         }
     }
 
     public static void down(int[] arr, int u, int n) {
         int t = u;
-        if (2 * u + 1 <= n && arr[2 * u + 1] < arr[t]) {
-            t = 2 * u + 1;
+        if (2 * u <= n && arr[t] > arr[2 * u]) {
+            t = 2 * u;
         }
-        if (2 * u + 2 <= n && arr[2 * u + 2] < arr[t]) {
-            t = 2 * u + 2;
+        if (2 * u + 1 <= n && arr[t] > arr[2 * u + 1]) {
+            t = 2 * u + 1;
         }
         if (t != u) {
             swap(arr, u, t);
