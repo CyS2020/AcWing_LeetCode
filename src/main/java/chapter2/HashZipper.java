@@ -12,9 +12,9 @@ import java.io.InputStreamReader;
  */
 public class HashZipper {
 
-    private int n;
+    private final int n;
 
-    private Node[] table;
+    private final Node[] table;
 
     public HashZipper(int n) {
         this.n = n;

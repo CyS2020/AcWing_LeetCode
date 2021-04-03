@@ -12,9 +12,9 @@ import java.io.InputStreamReader;
  */
 public class HashDetect {
 
-    private int n;
+    private final int n;
 
-    private Integer[] table;
+    private final Integer[] table;
 
     public HashDetect(int n) {
         this.n = n * 2;
@@ -28,10 +28,7 @@ public class HashDetect {
 
     public boolean query(int x) {
         int k = find(x);
-        if (table[k] == null) {
-            return false;
-        }
-        return true;
+        return table[k] != null;
     }
 
     private int find(int x) {
