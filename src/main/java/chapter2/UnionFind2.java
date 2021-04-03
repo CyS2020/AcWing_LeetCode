@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
  * @author: CyS2020
  * @date: 2021/3/29
  * 描述：连通块数量
+ * 口诀：递归更新父节点，find三行最核心
  */
 public class UnionFind2 {
 

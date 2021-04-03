@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 /**
  * @author: CyS2020
  * @date: 2021/3/28
- * 描述：没有条件创造条件也要上
+ * 描述：Tire树
+ * 口诀：没有条件创造条件也要上
  */
 
 class Tire {

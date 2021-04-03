@@ -9,6 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/3
  * 描述：食物链
+ * 口诀：递归更新父节点，find三行最核心
  */
 public class FoodChain {
 

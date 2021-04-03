@@ -61,6 +61,10 @@ public class IndexQueue {
         up(u);
     }
 
+    public int compareTo(int headIdx1, int headIdx2) {
+        return items[ph[headIdx1]] - items[ph[headIdx2]];
+    }
+
     private void swap(int i, int j) {
         // 堆变化
         int tmp = ph[i];
@@ -90,10 +94,6 @@ public class IndexQueue {
             swap(t, u);
             down(t);
         }
-    }
-
-    public int compareTo(int headIdx1, int headIdx2) {
-        return items[ph[headIdx1]] - items[ph[headIdx2]];
     }
 
     public static void main(String[] args) throws IOException {
