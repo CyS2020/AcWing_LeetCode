@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/3
  * 描述：字符串哈希
- * 口诀：
+ * 口诀：哈希需要PcQ，原理雷同前缀和
  */
 public class HashString {
 
