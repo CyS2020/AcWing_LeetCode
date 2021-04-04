@@ -46,7 +46,7 @@ class LargestXOR {
         int res = 0;
         for (int i = 31; i >= 0; i--) {
             int bit = v >> i & 1;
-            int rebit = bit == 0 ? 1 : 0;
+            int rebit = 1 - bit;
             if (cur.next[rebit] != null) {
                 cur = cur.next[rebit];
             } else {
