@@ -43,14 +43,15 @@ public class GraphLevel {
         queue.add(u);
         dist[u] = 0;
         while (!queue.isEmpty()) {
-            int value = queue.poll();
-            if (value == n) {
-                return dist[value];
+            int src = queue.poll();
+            if (src == n) {
+                return dist[src];
             }
-            for (Node cur = heads[value]; cur != null; cur = cur.next) {
-                if (dist[cur.value] == -1) {
-                    queue.add(cur.value);
-                    dist[cur.value] = dist[value] + 1;
+            for (Node cur = heads[src]; cur != null; cur = cur.next) {
+                int dst = cur.value;
+                if (dist[dst] == -1) {
+                    queue.add(dst);
+                    dist[dst] = dist[src] + 1;
                 }
             }
         }
