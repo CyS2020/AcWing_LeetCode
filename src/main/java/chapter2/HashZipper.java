@@ -31,12 +31,10 @@ public class HashZipper {
 
     public boolean query(int x) {
         int k = (x % n + n) % n;
-        Node node = table[k];
-        while (node != null) {
-            if (node.value == x) {
+        for (Node cur = table[k]; cur != null; cur = cur.next) {
+            if (cur.value == x) {
                 return true;
             }
-            node = node.next;
         }
         return false;
     }
