@@ -74,8 +74,8 @@ public class DijkstraHeap {
         return dist[a] - dist[b];
     }
 
-    public static void addEdge(int a, int b, int c) {
-        Node node = new Node(b, c);
+    public static void addEdge(int a, int b, int w) {
+        Node node = new Node(b, w);
         node.next = heads[a];
         heads[a] = node;
     }
