@@ -67,7 +67,7 @@ public class DijkstraPlain {
                 }
             }
         }
-        return dist[n] == Integer.MAX_VALUE / 2 ? -1 : dist[n];
+        return dist[dst] == Integer.MAX_VALUE / 2 ? -1 : dist[dst];
     }
 
     public static void addEdge(int a, int b, int w) {
