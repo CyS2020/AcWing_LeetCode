@@ -9,19 +9,20 @@ import java.util.Queue;
 
 /**
  * @author: CyS2020
- * @date: 2021/4/6
- * 描述：spfa算法
- * 口诀：确保不能存在负环
+ * @date: 2021/4/7
+ * 描述：负环
  */
-public class SPFA {
+public class SPFAring {
 
     public static int n;
 
     public static Node[] heads;
 
+    public static boolean[] st;
+
     public static int[] dist;
 
-    public static boolean[] st;
+    public static int[] count;
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -29,9 +30,9 @@ public class SPFA {
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         n = arr[0];
         heads = new Node[n + 1];
-        dist = new int[n + 1];
         st = new boolean[n + 1];
-        Arrays.fill(dist, Integer.MAX_VALUE / 2);
+        dist = new int[n + 1];
+        count = new int[n + 1];
         while ((line = input.readLine()) != null) {
             arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
             int a = arr[0];
@@ -40,15 +41,16 @@ public class SPFA {
             addEdge(a, b, w);
         }
 
-        int distance = calcShortestPath(1, n);
-        System.out.println(distance == -1 ? "impossible" : distance);
+        boolean ring = haveNegativeRing();
+        System.out.println(ring ? "Yes" : "No");
     }
 
-    public static int calcShortestPath(int src, int dst) {
+    public static boolean haveNegativeRing() {
         Queue<Integer> queue = new LinkedList<>();
-        dist[src] = 0;
-        queue.add(src);
-        st[src] = true;
+        for (int i = 1; i <= n; i++) {
+            queue.add(i);
+            st[i] = true;
+        }
         while (!queue.isEmpty()) {
             int t = queue.poll();
             st[t] = false;
@@ -56,6 +58,10 @@ public class SPFA {
                 int v = cur.dst;
                 if (dist[t] + cur.weight < dist[v]) {
                     dist[v] = dist[t] + cur.weight;
+                    count[v] = count[t] + 1;
+                    if (count[v] >= n) {
+                        return true;
+                    }
                     if (!st[v]) {
                         queue.add(v);
                         st[v] = true;
@@ -64,7 +70,7 @@ public class SPFA {
             }
         }
 
-        return dist[dst] > Integer.MAX_VALUE / 4 ? -1 : dist[dst];
+        return false;
     }
 
     public static void addEdge(int a, int b, int w) {
@@ -73,14 +79,15 @@ public class SPFA {
         heads[a] = node;
     }
 
+
     public static class Node {
         int dst;
         int weight;
         Node next;
 
         public Node(int dst, int weight) {
-            this.weight = weight;
             this.dst = dst;
+            this.weight = weight;
         }
     }
 }
