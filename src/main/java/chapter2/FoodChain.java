@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class FoodChain {
 
-    public static int[] father = new int[100010];
+    public static int[] ancestor = new int[100010];
 
     public static int[] dist = new int[100010];
 
@@ -25,7 +25,7 @@ public class FoodChain {
         int m = arr[1];
         int res = 0;
         for (int i = 1; i <= n; i++) {
-            father[i] = i;
+            ancestor[i] = i;
         }
         while (m-- > 0) {
             line = input.readLine();
@@ -55,7 +55,7 @@ public class FoodChain {
     public static void merge(int x, int y, int st) {
         int fx = find(x);
         int fy = find(y);
-        father[fx] = fy;
+        ancestor[fx] = fy;
         if (st == 1) {
             dist[fx] = dist[y] - dist[x];
         }
@@ -65,12 +65,12 @@ public class FoodChain {
     }
 
     public static int find(int x) {
-        if (x != father[x]) {
-            int u = find(father[x]);
-            dist[x] += dist[father[x]];
-            father[x] = u;
+        if (x != ancestor[x]) {
+            int u = find(ancestor[x]);
+            dist[x] += dist[ancestor[x]];
+            ancestor[x] = u;
         }
-        return father[x];
+        return ancestor[x];
     }
 
 }
