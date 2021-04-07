@@ -29,7 +29,7 @@ public class DijkstraPlain {
         weight = new int[n + 1][n + 1];
         dist = new int[n + 1];
         st = new boolean[n + 1];
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             Arrays.fill(weight[i], Integer.MAX_VALUE / 2);
         }
         Arrays.fill(dist, Integer.MAX_VALUE);
