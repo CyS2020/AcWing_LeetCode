@@ -89,3 +89,7 @@
 ### 薄弱点
 1. DFS
 2. 动态规划
+
+### 文字笔记
+<img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110707.jpg" alt="第二页" align=center /><br/>
+<img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110656.jpg" width = "750" height = "250" alt="第一页" align=center /><br/>
