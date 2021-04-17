@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * 描述：分解质因数
  * 口诀：除尽当前质因子
  */
-public class DivisorsPrime {
+public class PrimeFactor {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
