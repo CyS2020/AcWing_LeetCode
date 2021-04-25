@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 描述：整数二分
  * 口诀：左段左移，右段右移，左移+1
  */
-public class BinarySearchInteger {
+public class BinaryInteger {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));

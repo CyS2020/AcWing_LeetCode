@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * 描述：浮点数二分求立方根
  * 口诀：无边界问题，有精度问题
  */
-public class BinarySearchDouble {
+public class BinaryDouble {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
