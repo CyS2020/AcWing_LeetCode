@@ -11,11 +11,11 @@ import java.util.Arrays;
  * 描述：食物链
  * 口诀：递归更新父节点，find三行最核心
  */
-public class FoodChain {
+public class UnionFind3 {
 
-    public static int[] ancestor = new int[100010];
+    public static int[] ancestor;
 
-    public static int[] dist = new int[100010];
+    public static int[] dist;
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -24,6 +24,8 @@ public class FoodChain {
         int n = arr[0];
         int m = arr[1];
         int res = 0;
+        ancestor = new int[n + 1];
+        dist = new int[n + 1];
         for (int i = 1; i <= n; i++) {
             ancestor[i] = i;
         }

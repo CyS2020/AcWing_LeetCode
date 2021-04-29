@@ -12,12 +12,13 @@ import java.io.InputStreamReader;
  */
 public class UnionFind {
 
-    public static int[] ancestor = new int[100010];
+    public static int[] ancestor;
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         int n = Integer.parseInt(line.split(" ")[0]);
+        ancestor = new int[n + 1];
         for (int i = 1; i <= n; i++) {
             ancestor[i] = i;
         }
