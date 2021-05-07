@@ -13,7 +13,6 @@ public class FindNumberIn2DArray {
             return false;
         }
         int row = matrix.length;
-        int col = matrix[0].length;
         int i = 0;
         int j = matrix[0].length - 1;
         while (i < row && j >= 0) {
