@@ -22,21 +22,20 @@ public class RegexMatch {
         for (int i = 0; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (i > 0 && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1))) {
-                    f[i][j] = f[i - 1][j - 1];
+                    f[i][j] |= f[i - 1][j - 1];
                 }
                 if (p.charAt(j - 1) == '*') {
-                    if (j > 1 && f[i][j - 2]) {
+                    if (j > 1) {
                         // 重复0次
-                        f[i][j] = f[i][j - 2];
-                    } else if (i > 0 && j > 1
-                            && (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1))) {
+                        f[i][j] |= f[i][j - 2];
+                    }
+                    if (i > 0 && j > 1 && (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1))) {
                         // 重复n次
-                        f[i][j] = f[i - 1][j];
+                        f[i][j] |= f[i - 1][j];
                     }
                 }
             }
         }
-
         return f[n][m];
     }
 }
