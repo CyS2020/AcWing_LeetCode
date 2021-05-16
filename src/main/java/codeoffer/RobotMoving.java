@@ -33,17 +33,17 @@ public class RobotMoving {
         return res;
     }
 
-    public void dfs(int i, int j) {
-        if (st[i][j]) {
+    public void dfs(int x, int y) {
+        if (st[x][y]) {
             return;
         }
-        st[i][j] = true;
+        st[x][y] = true;
         res++;
-        for (int l = 0; l < 4; l++) {
-            int x = i + dx[l];
-            int y = j + dy[l];
-            if (x >= 0 && x < m && y >= 0 && y < n && isMove(x, y)) {
-                dfs(x, y);
+        for (int i = 0; i < 4; i++) {
+            int a = x + dx[i];
+            int b = y + dy[i];
+            if (a >= 0 && a < m && b >= 0 && b < n && isMove(a, b)) {
+                dfs(a, b);
             }
         }
     }

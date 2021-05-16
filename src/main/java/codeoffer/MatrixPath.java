@@ -38,22 +38,22 @@ public class MatrixPath {
         return false;
     }
 
-    public boolean dfs(int i, int j, int k) {
-        if (board[i][j] != word.charAt(k)) {
+    public boolean dfs(int x, int y, int k) {
+        if (board[x][y] != word.charAt(k)) {
             return false;
         }
         if (k == word.length() - 1) {
             return true;
         }
-        for (int l = 0; l < 4; l++) {
-            int x = i + dx[l];
-            int y = j + dy[l];
-            if (x >= 0 && x < row && y >= 0 && y < col && !state[x][y]) {
-                state[x][y] = true;
-                if (dfs(x, y, k + 1)) {
+        for (int i = 0; i < 4; i++) {
+            int a = x + dx[i];
+            int b = y + dy[i];
+            if (a >= 0 && a < row && b >= 0 && b < col && !state[a][b]) {
+                state[a][b] = true;
+                if (dfs(a, b, k + 1)) {
                     return true;
                 }
-                state[x][y] = false;
+                state[a][b] = false;
             }
         }
         return false;
