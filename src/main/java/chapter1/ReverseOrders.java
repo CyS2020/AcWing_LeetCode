@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/3/10
  * 描述：逆序对数量
- * 口诀：归并排序
+ * 口诀：归并排序 + 前半边比后半边大的个数
  */
 public class ReverseOrders {
 
