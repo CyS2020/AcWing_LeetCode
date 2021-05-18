@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * @author: CyS2020
  * @date: 2021/5/17
  * 描述：包含min函数的栈
- * 思路：单调栈
+ * 思路：单调栈--单调递减
  */
 class MinStack {
 
