@@ -42,17 +42,6 @@ public class TreeToBiList {
         }
     }
 
-    public static void main(String[] args) {
-        Node root = new Node(1);
-        Node left = new Node(2);
-        Node right = new Node(3);
-        root.left = left;
-        root.right = right;
-
-        TreeToBiList to = new TreeToBiList();
-        to.treeToDoublyList(root);
-    }
-
     public class Pair {
         Node left;
         Node right;
