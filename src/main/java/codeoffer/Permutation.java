@@ -21,7 +21,7 @@ public class Permutation {
         this.st = new boolean[s.length()];
         this.s = s;
         dfs("", 0);
-        return (String[]) res.toArray();
+        return res.toArray(new String[0]);
     }
 
     private void dfs(String tmp, int index) {
