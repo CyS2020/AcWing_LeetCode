@@ -125,7 +125,8 @@
 26. 二叉搜索树的中序遍历通过其他遍历方式排序即可得到，入队次序即是层序遍历的结果
 27. 前序遍历--根左右，中序遍历--左根右，后序遍历--左右根; 树的递归终止条件即节点为空，或者节点为叶节点
 28. 新建链表题目需要创建head = new Node(0) 与 cur = head 搭配使用最后返回head.next
-29. 常用下标i-j; n-m; l-r; u-v; a-b; k; res; ans; tmp; target;
+29. 常用下标i-j-k; n-m; l-r; u-v; a-b; x;
+30. 常用变量名res; ans; tmp; tgt; cnt; val;
 ### 文字笔记
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110707.jpg" alt="第二页" align=center /><br/>
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110656.jpg" alt="第一页" align=center /><br/>
