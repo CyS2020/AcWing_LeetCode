@@ -14,7 +14,7 @@ import java.util.Queue;
  * 描述：拓扑排序
  * 口诀：入度为0则无敌
  */
-public class sortTopology {
+public class SortTopology {
 
     public static int n, m;
 
