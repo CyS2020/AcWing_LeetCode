@@ -87,7 +87,7 @@
 1. 背包模型：01背包、完全背包、多重背包、分组背包
 2. 线性DP：状态表示以第i(j)结尾，从i-1(j-1)转移过来
 3. 区间DP：状态表示为一个区间i~j，枚举划分方式k，i~k; k+1~j; 枚举所有区间=区间长度 * 区间左端点
-4. 数位DP：分类讨论，高位不动低位最大，大于低位取最大，等于取到低位值(0的从次高来枚举，再减低位最大值)
+4. 数位DP：分类讨论，枚举到中位时，高位不动低位最大，大于中位取最大，等于取到中位值(0的从次高来枚举，再减低位最大值)
 5. 计数DP：原理等同完全背包问题，需要注意边界问题
 6. 状态压缩DP：数表示一组状态，二进制每位都是一个状态，然后使用二进制枚举
 7. 树形DP：当前后选择互斥的时候，就有多种状态表示，例如i选了些i-1就不能选了，f[i][0], f[i][1]
@@ -126,7 +126,8 @@
 27. 前序遍历--根左右，中序遍历--左根右，后序遍历--左右根; 树的递归终止条件即节点为空，或者节点为叶节点
 28. 新建链表题目需要创建head = new Node(0) 与 cur = head 搭配使用最后返回head.next
 29. 常用下标i-j-k; n-m; l-r; u-v; a-b; x;
-30. 常用变量名res; ans; tmp; tgt; cnt; val; maxv, minv
+30. 常用变量名res; ans; tmp; tgt; cnt; val; maxv; minv; bits; len;
+31. 下取整 n / i， 上取整 (n + i - 1) / i
 ### 文字笔记
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110707.jpg" alt="第二页" align=center /><br/>
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110656.jpg" alt="第一页" align=center /><br/>
