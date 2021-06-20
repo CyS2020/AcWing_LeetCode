@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * 描述：最短编辑距离
  * f[i][j]表示a以i结尾，b以j结尾匹配所花费的最少次数
  */
-public class EditDistanceShortest {
+public class ShortestEditDistance {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
