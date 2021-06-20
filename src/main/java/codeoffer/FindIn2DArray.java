@@ -4,7 +4,7 @@ package codeoffer;
  * @author: CyS2020
  * @date: 2021/5/6
  * 描述：二维数组中的查找
- * 思路：从左上角进行查找，大于目标值往左，小于目标值往右
+ * 思路：从右上角进行查找，大于目标值往左，小于目标值往下
  */
 public class FindIn2DArray {
 
