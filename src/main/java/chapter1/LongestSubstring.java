@@ -10,10 +10,10 @@ import java.util.Set;
 /**
  * @author: CyS2020
  * @date: 2021/3/12
- * 描述：最长连续不重复子序列
+ * 描述：最长连续不重复子串
  * 口诀：循环数组双指针，左i右j需check
  */
-public class LongestSubseq {
+public class LongestSubstring {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
