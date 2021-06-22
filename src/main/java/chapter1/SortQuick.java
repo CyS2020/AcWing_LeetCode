@@ -20,11 +20,11 @@ class SortQuick {
         int n = Integer.parseInt(line);
         line = input.readLine();
         int[] q = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-        quick_sort(q, 0, n - 1);
+        quickSort(q, 0, n - 1);
         Arrays.stream(q).forEach(k -> System.out.print(k + " "));
     }
 
-    public static void quick_sort(int[] q, int l, int r) {
+    public static void quickSort(int[] q, int l, int r) {
         if (l >= r) {
             return;
         }
@@ -38,8 +38,8 @@ class SortQuick {
                 swap(q, i, j);
             }
         }
-        quick_sort(q, l, j);
-        quick_sort(q, j + 1, r);
+        quickSort(q, l, j);
+        quickSort(q, j + 1, r);
     }
 
     public static void swap(int[] q, int i, int j) {

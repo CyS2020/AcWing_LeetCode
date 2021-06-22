@@ -18,17 +18,22 @@ public class SortHeap {
         String line = input.readLine();
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         int n = arr[0];
-        int m = arr[1];
         arr = new int[n + 1];
         line = input.readLine();
         int[] array = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         System.arraycopy(array, 0, arr, 1, n);
+        heapSort(arr, n);
+        for (int i = n; i > 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
 
+    private static void heapSort(int[] arr, int n) {
+        int len = n;
         for (int i = n / 2; i > 0; i--) {
             down(arr, i, n);
         }
-        for (int i = 0; i < m; i++) {
-            System.out.print(arr[0] + " ");
+        for (int i = 0; i < len; i++) {
             swap(arr, 1, n--);
             down(arr, 1, n);
         }

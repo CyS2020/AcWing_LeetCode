@@ -21,17 +21,17 @@ public class ReverseOrders {
         int n = Integer.parseInt(line);
         line = input.readLine();
         int[] q = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-        findReverse(q, 0, n - 1);
+        mergeSort(q, 0, n - 1);
         System.out.println(count);
     }
 
-    public static void findReverse(int[] q, int l, int r) {
+    public static void mergeSort(int[] q, int l, int r) {
         if (l >= r) {
             return;
         }
         int mid = l + r >> 1;
-        findReverse(q, l, mid);
-        findReverse(q, mid + 1, r);
+        mergeSort(q, l, mid);
+        mergeSort(q, mid + 1, r);
         int[] tmp = new int[r - l + 1];
         int i = l;
         int j = mid + 1;
