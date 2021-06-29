@@ -12,9 +12,14 @@ import java.io.InputStreamReader;
  */
 public class DynamicBiList {
 
-    public static Node head = null;
+    private static Node head = new Node(0, 0);
 
-    public static Node tail = null;
+    private static Node tail = new Node(0, 0);
+
+    static {
+        head.next = tail;
+        tail.prev = head;
+    }
 
     public static int index = 1;
 
@@ -45,33 +50,25 @@ public class DynamicBiList {
                     break;
             }
         }
-        for (Node cur = head; cur != null; cur = cur.next) {
-            System.out.print(cur + " ");
+        for (Node cur = head.next; cur != tail; cur = cur.next) {
+            System.out.print(cur.value + " ");
         }
     }
 
     public static void addToHead(int value) {
         Node newNode = new Node(value, index);
-        Node tmp = head;
-        newNode.next = head;
-        head = newNode;
-        if (tmp == null) {
-            tail = newNode;
-        } else {
-            tmp.prev = newNode;
-        }
+        newNode.next = head.next;
+        newNode.prev = head;
+        head.next.prev = newNode;
+        head.next = newNode;
     }
 
     public static void addToTail(int value) {
         Node newNode = new Node(value, index);
-        Node tmp = tail;
-        newNode.prev = tail;
-        tail = newNode;
-        if (tmp == null) {
-            head = newNode;
-        } else {
-            tmp.next = newNode;
-        }
+        newNode.next = tail;
+        newNode.prev = tail.prev;
+        tail.prev.next = newNode;
+        tail.prev = newNode;
     }
 
     public static void deleteKth(int k) {
@@ -79,18 +76,8 @@ public class DynamicBiList {
         while (cur.index != k) {
             cur = cur.next;
         }
-        Node next = cur.next;
-        Node prev = cur.prev;
-        if (prev == null) {
-            head = next;
-        } else {
-            prev.next = next;
-        }
-        if (next == null) {
-            tail = prev;
-        } else {
-            next.prev = prev;
-        }
+        cur.prev.next = cur.next;
+        cur.next.prev = cur.prev;
     }
 
     public static void addToKthLeft(int k, int value) {
@@ -99,10 +86,6 @@ public class DynamicBiList {
             cur = cur.prev;
         }
         Node newNode = new Node(value, index);
-        if (cur.prev == null) {
-            addToHead(value);
-            return;
-        }
         newNode.next = cur;
         newNode.prev = cur.prev;
         cur.prev.next = newNode;
@@ -113,10 +96,6 @@ public class DynamicBiList {
         Node cur = head;
         while (cur.index != k) {
             cur = cur.next;
-        }
-        if (cur.next == null) {
-            addToTail(value);
-            return;
         }
         Node newNode = new Node(value, index);
         newNode.next = cur.next;
@@ -134,11 +113,6 @@ public class DynamicBiList {
         public Node(int value, int index) {
             this.value = value;
             this.index = index;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
         }
     }
 }
