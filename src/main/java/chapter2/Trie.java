@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
  * 口诀：没有条件创造条件也要上
  */
 
-class Tire {
+class Trie {
 
     public static Node root = new Node('0', 0);
 
