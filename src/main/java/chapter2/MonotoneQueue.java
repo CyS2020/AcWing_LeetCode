@@ -23,44 +23,40 @@ public class MonotoneQueue {
         line = input.readLine();
         arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        Deque<Pair> queue = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (!queue.isEmpty() && i - queue.peekFirst().index + 1 > k) {
-                queue.pollFirst();
-            }
-            while (!queue.isEmpty() && queue.peekLast().value >= arr[i]) {
-                queue.pollLast();
-            }
-            queue.addLast(new Pair(i, arr[i]));
-            if (i >= k - 1) {
-                System.out.print(queue.peekFirst().value + " ");
-            }
-        }
-
+        minSlidingWindow(arr, k);
         System.out.println();
-        queue.clear();
+        maxSlidingWindow(arr, k);
+    }
 
+    private static void minSlidingWindow(int[] arr, int k) {
+        Deque<Integer> queue = new LinkedList<>();
         for (int i = 0; i < arr.length; i++) {
-            if (!queue.isEmpty() && i - queue.peekFirst().index + 1 > k) {
-                queue.pollFirst();
-            }
-            while (!queue.isEmpty() && queue.peekLast().value <= arr[i]) {
+            while (!queue.isEmpty() && arr[queue.peekLast()] > arr[i]) {
                 queue.pollLast();
             }
-            queue.addLast(new Pair(i, arr[i]));
+            while (!queue.isEmpty() && i - queue.peekFirst() + 1 > k) {
+                queue.pollFirst();
+            }
+            queue.addLast(i);
             if (i >= k - 1) {
-                System.out.print(queue.peekFirst().value + " ");
+                System.out.print(arr[queue.peekFirst()] + " ");
             }
         }
     }
 
-    public static class Pair {
-        int index;
-        int value;
-
-        public Pair(int index, int value) {
-            this.index = index;
-            this.value = value;
+    private static void maxSlidingWindow(int[] arr, int k) {
+        Deque<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < arr.length; i++) {
+            while (!queue.isEmpty() && arr[queue.peekLast()] < arr[i]) {
+                queue.pollLast();
+            }
+            while (!queue.isEmpty() && i - queue.peekFirst() + 1 > k) {
+                queue.pollFirst();
+            }
+            queue.addLast(i);
+            if (i >= k - 1) {
+                System.out.print(arr[queue.peekFirst()] + " ");
+            }
         }
     }
 }
