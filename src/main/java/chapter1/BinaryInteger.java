@@ -20,13 +20,13 @@ public class BinaryInteger {
         int[] q = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         while ((line = input.readLine()) != null) {
             int x = Integer.parseInt(line);
-            int start = binarySearchStart(q, x);
-            int end = binarySearchEnd(q, x);
+            int start = leftBound(q, x);
+            int end = rightBound(q, x);
             System.out.println(start + " " + end);
         }
     }
 
-    public static int binarySearchStart(int[] q, int x) {
+    public static int leftBound(int[] q, int x) {
         int l = 0;
         int r = q.length - 1;
         while (l < r) {
@@ -40,7 +40,7 @@ public class BinaryInteger {
         return q[r] == x ? r : -1;
     }
 
-    public static int binarySearchEnd(int[] q, int x) {
+    public static int rightBound(int[] q, int x) {
         int l = 0;
         int r = q.length - 1;
         while (l < r) {

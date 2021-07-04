@@ -4,7 +4,7 @@
     - 引申：第k个数
 2. 归并排序：确定中间分界点，递归处理左和右，三个while来归并，左到mid右到r
     - 引申：逆序对的数量
-3. 整数二分：左段取左，右段取右，左段+1
+3. 整数二分：左段取左，右段取右，左段+1，(等号边界同时取)
 4. 浮点数二分：无边界问题，有精度问题
 5. 加减乘除：人工计算，借位进位
 6. 前缀：一维减区间，二维减区域，下标从1始
@@ -128,6 +128,7 @@
 29. 常用下标i-j-k; n-m; l-r; u-v; a-b; x;
 30. 常用变量名res; ans; tmp; tgt; cnt; val; maxv; minv; bits; len;
 31. 下取整 n / i， 上取整 (n + i - 1) / i
+32. 当双指针相遇的时候，i-j、l-r都可以返回，不过规定下统一返回右边的j，或者r
 ### 文字笔记
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110707.jpg" alt="第二页" align=center /><br/>
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110656.jpg" alt="第一页" align=center /><br/>

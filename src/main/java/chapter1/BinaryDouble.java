@@ -16,11 +16,11 @@ public class BinaryDouble {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         double x = Double.parseDouble(line);
-        double cbrt = binarySearchFloat(x);
+        double cbrt = binarySearch(x);
         System.out.println(String.format("%.6f", cbrt));
     }
 
-    private static double binarySearchFloat(double x) {
+    private static double binarySearch(double x) {
         double l = -1 - Math.abs(x);
         double r = 1 + Math.abs(x);
         double eps = 1e-8;
