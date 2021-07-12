@@ -10,7 +10,7 @@ import java.util.LinkedList;
 /**
  * @author: CyS2020
  * @date: 2021/3/21
- * 描述：单调队列
+ * 描述：单调队列--滑动窗口
  * 口诀：队尾元素需清理，队尾插入仍单调
  */
 public class MonotoneQueue {
