@@ -6,7 +6,7 @@ package codeoffer;
  * 描述：判断平衡二叉树
  * 思路：递归求树的高度
  */
-public class AVLTreell {
+public class TreeBalance {
 
     public boolean res = true;
 
