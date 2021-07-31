@@ -1,4 +1,4 @@
-package codeoffer;
+package base;
 
 /**
  * @author: CyS2020
@@ -6,10 +6,12 @@ package codeoffer;
  * 描述：链表节点
  */
 public class ListNode {
-    int val;
-    ListNode next;
 
-    ListNode(int x) {
+    public int val;
+
+    public ListNode next;
+
+    public ListNode(int x) {
         val = x;
     }
 }

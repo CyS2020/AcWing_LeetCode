@@ -1,5 +1,7 @@
 package codeoffer;
 
+import base.ListNode;
+
 /**
  * @author: CyS2020
  * @date: 2021/5/16

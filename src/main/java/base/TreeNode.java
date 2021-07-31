@@ -1,4 +1,4 @@
-package codeoffer;
+package base;
 
 /**
  * @author: CyS2020
@@ -6,11 +6,14 @@ package codeoffer;
  * 描述：树节点
  */
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
 
-    TreeNode(int x) {
+    public int val;
+
+    public TreeNode left;
+
+    public TreeNode right;
+
+    public TreeNode(int x) {
         val = x;
     }
 }
