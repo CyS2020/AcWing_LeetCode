@@ -9,7 +9,7 @@ import java.util.Queue;
  * 描述：数据流中的中位数
  * 思路：小根堆维护较大到的一半数，大根堆维护较小的一半数，且堆大小相差不超过2
  */
-public class Medium {
+public class Median {
 
     Queue<Integer> minHeap = new PriorityQueue<>();
 
