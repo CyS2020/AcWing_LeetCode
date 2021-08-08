@@ -134,3 +134,10 @@
 ### 文字笔记
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110707.jpg" alt="第二页" align=center /><br/>
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110656.jpg" alt="第一页" align=center /><br/>
+
+### 面试实战
+- 阿里: 删除重复的数; 链表相加
+- 荣耀: 最大时钟; 最大正方形
+- 百度: 第k大的数; LRU缓存机制; 最大子序和
+- 拼多多: 最长递增子序列; 页数合并
+- 微软: 字符串中第一个int值
