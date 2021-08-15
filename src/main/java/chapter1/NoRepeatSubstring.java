@@ -13,7 +13,7 @@ import java.util.Set;
  * 描述：最长连续不重复子串
  * 口诀：循环数组双指针，左i右j需check
  */
-public class LongestSubstring {
+public class NoRepeatSubstring {
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
