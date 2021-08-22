@@ -7,7 +7,7 @@ import java.util.List;
  * @author: CyS2020
  * @date: 2021/8/22
  * 描述：括号生成
- * 思路：
+ * 思路：dfs时左括号数永远比右括号多
  */
 public class ParenthesesGenerate {
 

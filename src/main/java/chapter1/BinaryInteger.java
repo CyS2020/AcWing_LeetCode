@@ -26,31 +26,31 @@ public class BinaryInteger {
         }
     }
 
-    public static int leftBound(int[] q, int x) {
+    public static int leftBound(int[] q, int target) {
         int l = 0;
         int r = q.length - 1;
         while (l < r) {
             int mid = l + r >> 1;
-            if (q[mid] >= x) {
+            if (q[mid] >= target) {
                 r = mid;
             } else {
                 l = mid + 1;
             }
         }
-        return q[r] == x ? r : -1;
+        return q[r] == target ? r : -1;
     }
 
-    public static int rightBound(int[] q, int x) {
+    public static int rightBound(int[] q, int target) {
         int l = 0;
         int r = q.length - 1;
         while (l < r) {
             int mid = l + r + 1 >> 1;
-            if (q[mid] <= x) {
+            if (q[mid] <= target) {
                 l = mid;
             } else {
                 r = mid - 1;
             }
         }
-        return q[r] == x ? r : -1;
+        return q[r] == target ? r : -1;
     }
 }

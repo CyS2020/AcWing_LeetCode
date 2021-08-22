@@ -8,7 +8,7 @@ import base.TreeNode;
  * 描述：二叉树的最近公共祖先
  * 思路：普通二叉树无序的
  */
-public class TreeAncestorll {
+public class TreeAncestorII {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {

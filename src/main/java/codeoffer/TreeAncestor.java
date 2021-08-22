@@ -8,7 +8,7 @@ import base.TreeNode;
  * 描述：二叉搜索树的最近公共祖先
  * 思路：二叉搜索树是有左小右大的顺序的
  */
-public class TreeAncestorl {
+public class TreeAncestor {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (p.val < root.val && q.val < root.val) {
