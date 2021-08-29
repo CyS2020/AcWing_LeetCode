@@ -39,7 +39,7 @@ public class TrapRainWater {
     // 思路2
     public int trap2(int[] height) {
         Deque<Integer> stack = new LinkedList<>();
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < height.length; i++) {
             while (!stack.isEmpty() && height[i] > height[stack.peekLast()]) {
                 int low = stack.pollLast();
@@ -50,10 +50,10 @@ public class TrapRainWater {
                 int right = i;
                 int d = i - left - 1;
                 int h = Math.min(height[left], height[right]) - height[low];
-                ans += d * h;
+                res += d * h;
             }
             stack.addLast(i);
         }
-        return ans;
+        return res;
     }
 }
