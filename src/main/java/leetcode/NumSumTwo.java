@@ -9,7 +9,7 @@ import java.util.Map;
  * 描述：两数之和
  * 思路：将前面的数值保存下来，便于后面map查询
  */
-public class TwoSum {
+public class NumSumTwo {
 
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();

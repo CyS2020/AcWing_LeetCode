@@ -11,7 +11,7 @@ import java.util.List;
  * 思路：先确定一个值，在利用两数之和的双指针进行计算
  * 值得注意的是有序的两数之和与无序的两数之和的算法思路并不一样
  */
-public class ThreeSum {
+public class NumSumThree {
 
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
