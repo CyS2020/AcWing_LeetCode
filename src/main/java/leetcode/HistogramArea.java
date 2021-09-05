@@ -8,9 +8,9 @@ import java.util.LinkedList;
  * @date: 2021/8/29
  * 描述：接雨水
  * 思路1：两次遍历分别记录当前位置的左最值与右最值
- * 思路2：单调递减栈
+ * 思路2：单调递减栈，栈顶为左边第一个比当前值大的数
  */
-public class TrapRainWater {
+public class HistogramArea {
 
     // 思路1
     public int trap1(int[] height) {
