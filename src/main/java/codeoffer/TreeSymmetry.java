@@ -17,12 +17,12 @@ public class TreeSymmetry {
         return dfs(root.left, root.right);
     }
 
-    public boolean dfs(TreeNode A, TreeNode B) {
-        if (A == null || B == null) {
-            return A == null && B == null;
+    public boolean dfs(TreeNode l, TreeNode r) {
+        if (l == null || r == null) {
+            return l == null && r == null;
         }
-        if (A.val == B.val) {
-            return dfs(A.left, B.right) && dfs(A.right, B.left);
+        if (l.val == r.val) {
+            return dfs(l.left, r.right) && dfs(l.right, r.left);
         }
         return false;
     }
