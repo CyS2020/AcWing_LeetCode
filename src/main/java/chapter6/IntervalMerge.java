@@ -3,7 +3,10 @@ package chapter6;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -12,6 +15,7 @@ import java.util.TreeSet;
  * @date: 2021/3/14
  * 描述：区间合并
  * 口诀：左右端点来排序，策略多数是贪心
+ * merge方法寻找的是排序后的区间
  */
 public class IntervalMerge {
 
@@ -34,6 +38,35 @@ public class IntervalMerge {
             ed = Math.max(ed, right);
         }
         System.out.println(count);
+    }
+
+    public int[][] merge(int[][] intervals) {
+        List<Pair> list = new ArrayList<>();
+        for (int[] interval : intervals) {
+            list.add(new Pair(interval[0], interval[1]));
+        }
+        Collections.sort(list);
+        int st = list.get(0).left;
+        int ed = list.get(0).right;
+        List<Pair> resPair = new ArrayList<>();
+        for (int i = 1; i < list.size(); i++) {
+            Pair pair = list.get(i);
+            if (ed < pair.left) {
+                resPair.add(new Pair(st, ed));
+                st = pair.left;
+                ed = pair.right;
+            } else {
+                ed = Math.max(ed, pair.right);
+            }
+        }
+        resPair.add(new Pair(st, ed));
+
+        int[][] res = new int[resPair.size()][2];
+        for (int i = 0; i < resPair.size(); i++) {
+            Pair pair = resPair.get(i);
+            res[i] = new int[]{pair.left, pair.right};
+        }
+        return res;
     }
 
     public static class Pair implements Comparable<Pair> {
