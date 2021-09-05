@@ -43,4 +43,13 @@ public class CatalanMath {
         }
         return res;
     }
+
+    // 普通写法
+    public int catalanMath2(int n) {
+        long res = 1;
+        for (int i = 0; i < n; i++) {
+            res = res * (4 * i + 2) / (i + 2);
+        }
+        return (int) res;
+    }
 }
