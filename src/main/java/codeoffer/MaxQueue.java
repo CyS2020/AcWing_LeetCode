@@ -8,7 +8,7 @@ import java.util.Queue;
  * @author: CyS2020
  * @date: 2021/7/4
  * 描述：队列的最大值
- * 思路：滑动窗口的应用题
+ * 思路：单调队列的应用题
  */
 class MaxQueue {
 
