@@ -11,11 +11,9 @@ import java.util.Map;
  */
 public class LRUCache {
 
-    private Node head = new Node(0, 0);
+    private final Node head = new Node(0, 0);
 
-    private Node tail = new Node(0, 0);
-
-    private int size = 0;
+    private final Node tail = new Node(0, 0);
 
     private final int capacity;
 
@@ -32,7 +30,8 @@ public class LRUCache {
         if (node == null) {
             return -1;
         }
-        moveToHead(node);
+        removeNode(node);
+        addToHead(node);
         return node.value;
     }
 
@@ -42,24 +41,15 @@ public class LRUCache {
             Node newNode = new Node(key, value);
             cache.put(key, newNode);
             addToHead(newNode);
-            ++size;
-            if (size > capacity) {
+            if (cache.size() > capacity) {
                 Node tailNode = removeTail();
                 cache.remove(tailNode.key);
-                --size;
             }
         } else {
             node.value = value;
-            moveToHead(node);
+            removeNode(node);
+            addToHead(node);
         }
-
-    }
-
-    public void addToHead(Node node) {
-        node.next = head.next;
-        node.prev = head;
-        head.next.prev = node;
-        head.next = node;
     }
 
     public void removeNode(Node node) {
@@ -67,9 +57,11 @@ public class LRUCache {
         node.next.prev = node.prev;
     }
 
-    public void moveToHead(Node node) {
-        removeNode(node);
-        addToHead(node);
+    public void addToHead(Node node) {
+        node.next = head.next;
+        node.prev = head;
+        head.next.prev = node;
+        head.next = node;
     }
 
     public Node removeTail() {
