@@ -8,8 +8,8 @@ import java.util.Arrays;
 /**
  * @author: CyS2020
  * @date: 2021/4/4
- * 描述：深度优先搜索
- * 口诀：终止条件+恢复现场
+ * 描述： n-皇后问题
+ * 口诀：深度优先搜索：终止条件+恢复现场
  */
 public class NQueen {
 

@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 /**
  * @author: CyS2020
  * @date: 2021/4/4
- * 描述：深度优先搜索
- * 口诀：终止条件+恢复现场
+ * 描述：排列数字
+ * 口诀：深度优先搜索：终止条件+恢复现场
  */
 public class ArrangeNum {
 

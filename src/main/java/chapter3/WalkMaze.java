@@ -13,7 +13,7 @@ import java.util.Queue;
  * @author: CyS2020
  * @date: 2021/4/5
  * 描述：走迷宫
- * 口诀：眼观六路耳听八方
+ * 口诀：广度优先搜索
  */
 public class WalkMaze {
 

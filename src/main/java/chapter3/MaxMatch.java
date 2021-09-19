@@ -9,6 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/8
  * 描述：最大匹配
+ * 口诀：匈牙利算法
  */
 public class MaxMatch {
 

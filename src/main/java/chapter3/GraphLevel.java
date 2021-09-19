@@ -11,7 +11,7 @@ import java.util.Queue;
  * @author: CyS2020
  * @date: 2021/4/5
  * 描述：图的层次
- * 口诀：队列不空+扩展对头
+ * 口诀：权值均为1的图求最短路径
  */
 public class GraphLevel {
 

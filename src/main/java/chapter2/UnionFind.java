@@ -31,7 +31,7 @@ public class UnionFind {
                     merge(a, b);
                     break;
                 case "Q":
-                    boolean isSame = query(a, b);
+                    boolean isSame = find(a) == find(b);
                     System.out.println(isSame ? "Yes" : "No");
                     break;
             }
@@ -42,10 +42,6 @@ public class UnionFind {
         if (find(a) != find(b)) {
             ancestor[find(a)] = find(b);
         }
-    }
-
-    public static boolean query(int a, int b) {
-        return find(a) == find(b);
     }
 
     // 路径压缩

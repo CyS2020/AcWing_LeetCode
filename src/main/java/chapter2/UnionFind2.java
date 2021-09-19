@@ -35,7 +35,7 @@ public class UnionFind2 {
                     merge(a, b);
                     break;
                 case "Q1":
-                    boolean isSame = query(a, b);
+                    boolean isSame = find(a) == find(b);
                     System.out.println(isSame ? "Yes" : "No");
                     break;
                 case "Q2":
@@ -52,10 +52,6 @@ public class UnionFind2 {
             size[find(b)] += size[find(a)];
             ancestor[find(a)] = find(b);
         }
-    }
-
-    public static boolean query(int a, int b) {
-        return find(a) == find(b);
     }
 
     public static int count(int a) {

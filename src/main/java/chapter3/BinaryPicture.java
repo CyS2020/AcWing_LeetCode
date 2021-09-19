@@ -9,6 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/7
  * 描述：二分图
+ * 口诀：染色法
  */
 public class BinaryPicture {
 
