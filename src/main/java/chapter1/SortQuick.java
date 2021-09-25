@@ -28,12 +28,12 @@ class SortQuick {
         if (l >= r) {
             return;
         }
-        int a = q[l + r >> 1];
+        int mid = q[l + r >> 1];
         int i = l - 1;
         int j = r + 1;
         while (i < j) {
-            while (q[++i] < a) ;
-            while (q[--j] > a) ;
+            while (q[++i] < mid) ;
+            while (q[--j] > mid) ;
             if (i < j) {
                 swap(q, i, j);
             }

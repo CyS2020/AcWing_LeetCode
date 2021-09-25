@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/3/9
  * 描述：第k个数
- * 口诀：快速排序与分治
+ * 口诀：快速排序与分治, 需要注意的是如果是第K大的数则需要降序排序, 修改36,37行的比较方向即可
  */
 public class KthNumber {
 
@@ -26,15 +26,15 @@ public class KthNumber {
     }
 
     public static int findKth(int[] q, int l, int r, int k) {
-        if (l == r) {
+        if (l >= r) {
             return q[r];
         }
-        int x = q[l + r >> 1];
+        int mid = q[l + r >> 1];
         int i = l - 1;
         int j = r + 1;
         while (i < j) {
-            while (q[++i] < x) ;
-            while (q[--j] > x) ;
+            while (q[++i] < mid) ;
+            while (q[--j] > mid) ;
             if (i < j) {
                 swap(q, i, j);
             }
