@@ -1,5 +1,7 @@
 package chapter2;
 
+import base.TrieNode;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,9 +15,10 @@ import java.io.InputStreamReader;
 
 class Trie {
 
-    public static Node root = new Node('0', 0);
+    public TrieNode root = new TrieNode('0', 0);
 
     public static void main(String[] args) throws IOException {
+        Trie trie = new Trie();
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         while ((line = input.readLine()) != null) {
@@ -24,48 +27,54 @@ class Trie {
             String text = arr[1];
             switch (opera) {
                 case "I":
-                    insert(text);
+                    trie.insert(text);
                     break;
                 case "Q":
-                    int count = query(text);
+                    int count = trie.query(text);
                     System.out.println(count);
                     break;
+                case "P":
+                    System.out.println(trie.startsWith(text));
             }
         }
     }
 
-    public static void insert(String text) {
-        Node cur = root;
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (cur.next[ch - 'a'] == null) {
-                cur.next[ch - 'a'] = new Node(ch, 0);
+    public void insert(String word) {
+        char[] chs = word.toCharArray();
+        TrieNode cur = root;
+        for (char ch : chs) {
+            int index = ch - 'a';
+            if (cur.next[index] == null) {
+                cur.next[index] = new TrieNode(ch, 0);
             }
-            cur = cur.next[ch - 'a'];
+            cur = cur.next[index];
         }
         cur.count++;
     }
 
-    public static int query(String text) {
-        Node cur = root;
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (cur.next[ch - 'a'] == null) {
+    public int query(String word) {
+        char[] chs = word.toCharArray();
+        TrieNode cur = root;
+        for (char ch : chs) {
+            int index = ch - 'a';
+            if (cur.next[index] == null) {
                 return 0;
             }
-            cur = cur.next[ch - 'a'];
+            cur = cur.next[index];
         }
         return cur.count;
     }
 
-    public static class Node {
-        char ch;
-        int count;
-        Node[] next = new Node[26];
-
-        public Node(char ch, int count) {
-            this.ch = ch;
-            this.count = count;
+    public boolean startsWith(String prefix) {
+        char[] chs = prefix.toCharArray();
+        TrieNode cur = root;
+        for (char ch : chs) {
+            int index = ch - 'a';
+            if (cur.next[index] == null) {
+                return false;
+            }
+            cur = cur.next[index];
         }
+        return cur != null;
     }
 }
