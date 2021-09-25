@@ -58,8 +58,7 @@ public class SortTopology {
             int src = queue.poll();
             for (Node cur = heads[src]; cur != null; cur = cur.next) {
                 int dst = cur.value;
-                degree[dst]--;
-                if (degree[dst] == 0) {
+                if (--degree[dst] == 0) {
                     queue.add(dst);
                     keep.add(dst);
                 }
