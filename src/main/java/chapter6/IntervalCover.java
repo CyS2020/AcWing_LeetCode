@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author: CyS2020
  * @date: 2021/4/29
- * 描述：区间覆盖
+ * 描述：区间覆盖--请你选择尽量少的区间，将指定线段区间完全覆盖。
  */
 public class IntervalCover {
 

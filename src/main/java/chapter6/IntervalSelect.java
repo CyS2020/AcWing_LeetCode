@@ -13,6 +13,7 @@ import java.util.List;
  * @date: 2021/4/29
  * 描述：区间选点
  * 描述：最大不相交区间数量
+ * 思路：与区间合并相反, 找出最多互不干涉的区间
  */
 public class IntervalSelect {
 
