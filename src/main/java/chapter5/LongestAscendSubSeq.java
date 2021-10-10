@@ -16,23 +16,21 @@ public class LongestAscendSubSeq {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         int N = Integer.parseInt(line);
-        int[] f = new int[N + 1];
-        int[] s = new int[N + 1];
         line = input.readLine();
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-        System.arraycopy(arr, 0, s, 1, N);
 
-        for (int i = 1; i <= N; i++) {
+        int[] f = new int[N];
+        for (int i = 0; i < N; i++) {
             f[i] = 1;
-            for (int k = 1; k < i; k++) {
-                if (s[k] < s[i]) {
+            for (int k = 0; k < i; k++) {
+                if (arr[k] < arr[i]) {
                     f[i] = Math.max(f[i], f[k] + 1);
                 }
             }
         }
 
         int res = 0;
-        for (int i = 1; i <= N; i++) {
+        for (int i = 0; i < N; i++) {
             res = Math.max(res, f[i]);
         }
 

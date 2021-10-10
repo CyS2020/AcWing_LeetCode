@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 描述：最长上升子序列II
  * 二分优化
  */
-public class LongestAscentSubseqII {
+public class LongestAscendSubseqII {
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
