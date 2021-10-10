@@ -16,7 +16,7 @@ public class TreeSerialize {
 
     private List<String> seList = new ArrayList<>();
 
-    private List<String> deList;
+    private List<String> deList = new ArrayList<>();
 
     private int index = 0;
 
