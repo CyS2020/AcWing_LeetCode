@@ -3,7 +3,8 @@ package codeoffer;
 /**
  * @author: CyS2020
  * @date: 2021/9/25
- * 描述：
+ * 描述：二维数组按顺序排序
+ * 思路：将一维的二分查找扩展到二维
  */
 public class FindIn2DArray {
 
