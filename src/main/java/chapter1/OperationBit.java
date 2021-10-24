@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * @author: CyS2020
  * @date: 2021/3/14
- * 描述：位运算
+ * 描述：位运算-二进制中1个数
  * 口诀：取出k位二进制，返回最后1位置
  */
 public class OperationBit {
