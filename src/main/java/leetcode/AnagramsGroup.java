@@ -12,7 +12,7 @@ import java.util.Map;
  * 描述：字母异位词分组
  * 思路：使用Map分类，主要是找到key的定义
  */
-public class GroupAnagrams {
+public class AnagramsGroup {
 
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> ans = new HashMap<>();
