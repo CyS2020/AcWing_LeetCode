@@ -6,7 +6,7 @@ package leetcode;
  * 描述：最长回文子串
  * 思路：对奇数偶数分别求一次取最长的子串
  */
-public class LongestPalindrome {
+public class PalindromeLongest {
 
     public String longestPalindrome(String s) {
         String res = "";
