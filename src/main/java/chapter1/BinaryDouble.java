@@ -17,7 +17,7 @@ public class BinaryDouble {
         String line = input.readLine();
         double x = Double.parseDouble(line);
         double cbrt = binarySearch(x);
-        System.out.println(String.format("%.6f", cbrt));
+        System.out.printf("%.6f%n", cbrt);
     }
 
     private static double binarySearch(double x) {
