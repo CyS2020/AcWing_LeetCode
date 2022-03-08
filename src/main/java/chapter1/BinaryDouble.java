@@ -24,7 +24,7 @@ public class BinaryDouble {
         double l = -1 - Math.abs(x);
         double r = 1 + Math.abs(x);
         double eps = 1e-8;
-        while (r - l > eps) {
+        while (eps < r - l) {
             double mid = (l + r) / 2;
             if (mid * mid * mid <= x) {
                 l = mid;

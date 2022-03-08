@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/3/3
  * 描述：整数二分
- * 口诀：左段左移，右段右移，左移+1
+ * 口诀：左段取左，右段取右，左段+1
  */
 public class BinaryInteger {
 
@@ -31,7 +31,7 @@ public class BinaryInteger {
         int r = q.length - 1;
         while (l < r) {
             int mid = l + r >> 1;
-            if (q[mid] >= target) {
+            if (target <= q[mid]) {
                 r = mid;
             } else {
                 l = mid + 1;
