@@ -45,6 +45,6 @@ public class KMP {
                 sb.append(i - n + 1).append(" ");
             }
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }

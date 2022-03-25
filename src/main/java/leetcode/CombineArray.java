@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author: CyS2020
  * @date: 2021/8/29
- * 描述：全排雷
+ * 描述：全排列
  * 思路：dfs
  */
 public class CombineArray {

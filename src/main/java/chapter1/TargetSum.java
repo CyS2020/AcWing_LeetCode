@@ -42,8 +42,8 @@ public class TargetSum {
     }
 
     static class Pair {
-        public int i;
-        public int j;
+        private int i;
+        private int j;
 
         public Pair(int i, int j) {
             this.i = i;

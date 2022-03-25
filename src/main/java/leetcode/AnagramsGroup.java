@@ -20,10 +20,8 @@ public class AnagramsGroup {
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
             String key = new String(chars);
-            if (!ans.containsKey(key)) {
-                ans.put(key, new ArrayList<>());
-            }
-            ans.get(key).add(str);
+            List<String> list = ans.computeIfAbsent(key, k -> new ArrayList<>());
+            list.add(str);
         }
         return new ArrayList<>(ans.values());
     }

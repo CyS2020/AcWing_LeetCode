@@ -22,6 +22,7 @@ public class HashZipper {
     }
 
     public void insert(int x) {
+        // 兼容负数
         int k = (x % n + n) % n;
         Node head = table[k];
         Node node = new Node(x);

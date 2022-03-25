@@ -32,6 +32,7 @@ public class HashDetect {
     }
 
     private int find(int x) {
+        // 兼容负数
         int k = (x % n + n) % n;
         while (table[k] != null && table[k] != x) {
             k = (k + 1) % n;

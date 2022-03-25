@@ -12,6 +12,7 @@ import java.util.Queue;
  * @date: 2021/4/6
  * 描述：堆优化Dijkstra
  * 口诀：优先队列有冗余
+ * 队列queue可以更新旧值(contains-remove-add), 就可以省略st数组, 不过性能会变差
  */
 public class DijkstraHeap {
 
