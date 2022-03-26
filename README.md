@@ -139,6 +139,7 @@
 32. 当双指针相遇的时候，i-j、l-r都可以返回，不过规定下统一返回右边的j，或者r
 33. 凡是递归实现的都可以使用stack模拟递归
 34. 一般遇到(),[], 左括号和右括号逻辑不一致，直接使用stack保存
+35. 左(右)边第一个比他小(大), 这种场景均是单调栈, 左右决定遍历方向, 弹栈直到栈顶比当前值小(大)
 ### 文字笔记
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110707.jpg" alt="第二页" align=center /><br/>
 <img src="https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/resources/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210411110656.jpg" alt="第一页" align=center /><br/>

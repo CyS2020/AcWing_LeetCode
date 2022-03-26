@@ -30,7 +30,7 @@ public class WordBreak {
                     continue;
                 }
                 if (dp[j] && set.contains(s.substring(j, i))) {
-                    dp[i] = dp[j] && set.contains(s.substring(j, i));
+                    dp[i] = true;
                     break;
                 }
             }

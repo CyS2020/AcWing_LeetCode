@@ -4,7 +4,7 @@ package leetcode;
  * @author: CyS2020
  * @date: 2021/9/19
  * 描述：乘积最大子数组
- * 思路：遍历某个位置时, 该值要么乘上最大值, 乘上最大值, 或者不乘
+ * 思路：遍历某个位置时, 该值要么乘上最大值, 乘上最小值, 或者不乘
  */
 public class MaxSubArrayMul {
 

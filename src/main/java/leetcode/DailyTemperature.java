@@ -15,7 +15,7 @@ public class DailyTemperature {
         Deque<Integer> stack = new LinkedList<>();
         int[] res = new int[temperatures.length];
         for (int i = temperatures.length - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && temperatures[i] >= temperatures[stack.peekFirst()]) {
+            while (!stack.isEmpty() && temperatures[stack.peekFirst()] <= temperatures[i]) {
                 stack.pollFirst();
             }
             res[i] = stack.isEmpty() ? 0 : stack.peekFirst() - i;
