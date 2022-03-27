@@ -3,7 +3,8 @@ package codeoffer;
 /**
  * @author: CyS2020
  * @date: 2021/5/13
- * 思路：双指针，指针外扩
+ * 描述：调整数组顺序使奇数位于偶数前面
+ * 思路：快排的思想
  */
 class OddBeforeEven {
 

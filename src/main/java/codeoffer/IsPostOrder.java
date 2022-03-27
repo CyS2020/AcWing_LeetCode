@@ -8,11 +8,11 @@ package codeoffer;
  */
 public class IsPostOrder {
 
-    private int[] postOrder;
+    private int[] postorder;
 
-    public boolean verifyPostOrder(int[] postOrder) {
-        this.postOrder = postOrder;
-        int len = postOrder.length;
+    public boolean verifyPostorder(int[] postorder) {
+        this.postorder = postorder;
+        int len = postorder.length;
         return dfs(0, len - 1);
     }
 
@@ -20,11 +20,10 @@ public class IsPostOrder {
         if (l >= r) {
             return true;
         }
-        int root = postOrder[r];
-        int k = -1;
-        while (postOrder[++k] < postOrder[r]) ;
+        int k = l - 1;
+        while (postorder[++k] < postorder[r]) ;
         for (int i = k; i < r; i++) {
-            if (postOrder[i] < postOrder[r]) {
+            if (postorder[i] < postorder[r]) {
                 return false;
             }
         }

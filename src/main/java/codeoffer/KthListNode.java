@@ -23,7 +23,8 @@ public class KthListNode {
             return;
         }
         dfs(root.right);
-        if (--k == 0) {
+        k--;
+        if (k == 0) {
             res = root.val;
             return;
         }

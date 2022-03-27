@@ -11,20 +11,12 @@ import base.ListNode;
 public class CommonListNode {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode curA = headA;
-        ListNode curB = headB;
-        while (curA != curB) {
-            if (curA == null) {
-                curA = headB;
-            } else {
-                curA = curA.next;
-            }
-            if (curB == null) {
-                curB = headA;
-            } else {
-                curB = curB.next;
-            }
+        ListNode l1 = headA;
+        ListNode l2 = headB;
+        while (l1 != l2) {
+            l1 = l1 == null ? headB : l1.next;
+            l2 = l2 == null ? headA : l2.next;
         }
-        return curA;
+        return l1;
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author: CyS2020
  * @date: 2021/5/23
- * 描述：二叉树和为某一直的路径
+ * 描述：二叉树中和为某一值的路径
  */
 public class TreeTarget {
 

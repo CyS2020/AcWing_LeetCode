@@ -13,26 +13,25 @@ public class TreePathSumIII {
     private int res = 0;
 
     public int pathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return res;
+        }
         dfs(root, targetSum);
+        pathSum(root.left, targetSum);
+        pathSum(root.right, targetSum);
         return res;
     }
+
 
     private void dfs(TreeNode root, int targetSum) {
         if (root == null) {
             return;
         }
-        path(root, targetSum, 0);
-    }
-
-    private void path(TreeNode root, int targetSum, int val) {
-        if (root == null) {
-            return;
-        }
-        int sum = root.val + val;
-        if (sum == targetSum) {
+        targetSum -= root.val;
+        if (targetSum == 0) {
             res++;
         }
-        path(root.left, targetSum, sum);
-        path(root.right, targetSum, sum);
+        dfs(root.left, targetSum);
+        dfs(root.right, targetSum);
     }
 }
