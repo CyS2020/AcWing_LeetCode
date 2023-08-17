@@ -10,6 +10,7 @@ import java.util.Arrays;
  * @date: 2021/3/3
  * 描述：整数二分
  * 口诀：左段取左，右段取右，左段+1
+ * 0 1 x_ x x- 9, x_ 满足的条件是右段 x_ <= q[mid]; x- 满足的条件是左段：q[mid] <= x-
  */
 public class BinaryInteger {
 
