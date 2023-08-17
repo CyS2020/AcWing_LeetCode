@@ -10,6 +10,8 @@ import java.util.Arrays;
  * @date: 2021/3/10
  * 描述：逆序对数量
  * 口诀：归并排序 + 前半边比后半边大的个数
+ * 当左边，右边分别是有序的时候
+ * 如果一个数从右边先归到左边 i 处，那么该值肯定比 i ~ mid 都小，那么 i ~ mid 都是逆序的
  */
 public class ReverseOrders {
 
