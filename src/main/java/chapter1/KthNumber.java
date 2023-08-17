@@ -35,7 +35,7 @@ public class KthNumber {
         int j = r + 1;
         while (i < j) {
             while (q[++i] < mid) ;
-            while (q[--j] > mid) ;
+            while (mid < q[--j]) ;
             if (i < j) {
                 swap(q, i, j);
             }
