@@ -10,6 +10,7 @@ import java.util.Arrays;
  * @date: 2021/3/1
  * 描述：快速排序
  * 口诀：确定中间分界点，左右指针往外扩，左小右大移指针，递归处理左和右
+ * mid 是一直变化的，因此 while 比较时不能使用 q[mid]
  */
 
 class SortQuick {
@@ -33,7 +34,7 @@ class SortQuick {
         int j = r + 1;
         while (i < j) {
             while (q[++i] < mid) ;
-            while (q[--j] > mid) ;
+            while (mid < q[--j]) ;
             if (i < j) {
                 swap(q, i, j);
             }
