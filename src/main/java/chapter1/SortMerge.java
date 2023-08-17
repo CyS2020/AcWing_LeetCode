@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/3/2
  * 描述：归并排序
- * 口诀：确定中间分界点，递归处理左和右，三个while来归并，辅助数组回原地
+ * 口诀：口诀：确定中间分界点，递归处理左和右，tmp数组归并：while 交替 + 左右单向
  */
 public class SortMerge {
 
