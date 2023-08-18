@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * @author: CyS2020
  * @date: 2021/3/5
- * 描述：高精度除法https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/java/chapter1/OperationDiv.java
+ * 描述：高精度除法
  * 口诀：人工计算，加减乘从右往左计算，除法是从左往右计算
  */
 class OperationDiv {
