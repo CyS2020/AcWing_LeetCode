@@ -28,15 +28,16 @@ class OperationMul {
 
     public static List<Integer> mul(List<Integer> a, int b) {
         LinkedList<Integer> c = new LinkedList<>();
+        int i = a.size() - 1;
         int t = 0;
-        for (int i = a.size() - 1; i >= 0 || t > 0; i--) {
-            if (i >= 0) {
-                t = t + a.get(i) * b;
+        while(i >= 0 || t > 0){
+            if(i >= 0){
+                t = t + b * a.get(i--);
             }
             c.addFirst(t % 10);
             t /= 10;
         }
-        while (c.size() > 1 && c.getFirst() == 0) {
+        while(c.getFirst() == 0 && c.size() > 1){
             c.pop();
         }
         return c;
