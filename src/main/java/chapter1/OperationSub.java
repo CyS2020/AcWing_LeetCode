@@ -50,18 +50,20 @@ class OperationSub {
 
     public static List<Integer> sub(List<Integer> a, List<Integer> b) {
         LinkedList<Integer> c = new LinkedList<>();
+        int i = a.size() - 1;
+        int j = b.size() - 1;
         int t = 0;
-        for (int i = a.size() - 1, j = b.size() - 1; i >= 0 || j >= 0; i--, j--) {
+        while (i >= 0 || j >= 0) {
             if (i >= 0) {
-                t += a.get(i);
+                t += a.get(i--);
             }
             if (j >= 0) {
-                t -= b.get(j);
+                t -= b.get(j--);
             }
             c.addFirst((t + 10) % 10);
             t = t < 0 ? -1 : 0;
         }
-        while (c.size() > 1 && c.getFirst() == 0) {
+        while (c.getFirst() == 0 && c.size() > 1) {
             c.pop();
         }
         return c;
