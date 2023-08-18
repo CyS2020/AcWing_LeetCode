@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * @author: CyS2020
  * @date: 2021/3/5
- * 描述：高精度除法
+ * 描述：高精度除法https://github.com/CyS2020/AcWing_LeetCode/blob/main/src/main/java/chapter1/OperationDiv.java
  * 口诀：人工计算，进位借位
  */
 class OperationDiv {
@@ -28,16 +28,17 @@ class OperationDiv {
 
     public static Result div(List<Integer> a, int b) {
         LinkedList<Integer> c = new LinkedList<>();
-        int r = 0;
-        for (Integer A : a) {
-            r = r * 10 + A;
-            c.add(r / b);
-            r %= b;
+        int i = 0;
+        int t = 0;
+        while (i < a.size()) {
+            t = t * 10 + a.get(i++);
+            c.add(t / b);
+            t %= b;
         }
-        while (c.size() > 1 && c.getFirst() == 0) {
+        while (c.getFirst() == 0 && c.size() > 1) {
             c.pop();
         }
-        return new Result(c, r);
+        return new Result(c, t);
     }
 
     public static class Result {
