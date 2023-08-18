@@ -29,16 +29,18 @@ public class OperationAdd {
 
     private static List<Integer> add(List<Integer> a, List<Integer> b) {
         LinkedList<Integer> c = new LinkedList<>();
+        int i = a.size() - 1;
+        int j = b.size() - 1;
         int t = 0;
-        for (int i = a.size() - 1, j = b.size() - 1; i >= 0 || j >= 0 || t > 0; i--, j--) {
-            if (i >= 0) {
-                t += a.get(i);
+        while(i >= 0 || j >= 0 || t > 0){
+            if(i >= 0){
+                t += a.get(i--);
             }
-            if (j >= 0) {
-                t += b.get(j);
+            if(j >= 0){
+                t += b.get(j--);
             }
             c.addFirst(t % 10);
-            t = t / 10 > 0 ? 1 : 0;
+            t /= 10;
         }
         return c;
     }
