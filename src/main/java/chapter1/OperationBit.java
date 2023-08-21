@@ -19,16 +19,16 @@ public class OperationBit {
         line = input.readLine();
         int[] q = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         for (int value : q) {
-            int quantity = OneQuantity(value);
+            int quantity = oneQuantity(value);
             System.out.print(quantity + " ");
         }
     }
 
-    public static int OneQuantity(int n) {
+    public static int oneQuantity(int n) {
         int count = 0;
         while (n != 0) {
-            n -= (n & -n);
-            count++;
+            count += n & 1;
+            n >>= 1;
         }
         return count;
     }
