@@ -30,12 +30,14 @@ public class IntervalMerge {
         int count = 0;
         int ed = Integer.MIN_VALUE;
         for (Pair pair : interval) {
-            int left = pair.left;
-            int right = pair.right;
-            if (ed < left) {
+            if (pair.left <= ed) {
+                // 能够延续区间则更新右端点
+                ed = Math.max(ed, pair.right);
+            } else {
+                // 不能延续区间则开始新的区间
+                ed = pair.right;
                 count++;
             }
-            ed = Math.max(ed, right);
         }
         System.out.println(count);
     }
