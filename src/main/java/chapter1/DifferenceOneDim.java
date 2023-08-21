@@ -10,6 +10,7 @@ import java.util.Arrays;
  * @date: 2021/3/8
  * 描述：差分
  * 口诀：全0造差分，个体影响大
+ * 从全零数组在左右两端进行加减(初始化时 l=r=i)，最后求一遍前缀和即是原数组
  */
 public class DifferenceOneDim {
 
