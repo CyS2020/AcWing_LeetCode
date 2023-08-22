@@ -22,15 +22,15 @@ class MonotoneStack {
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         Deque<Integer> stack = new LinkedList<>();
         for (int i : arr) {
-            while (!stack.isEmpty() && stack.peekLast() >= i) {
-                stack.pollLast();
+            while (!stack.isEmpty() && stack.peek() >= i) {
+                stack.poll();
             }
             if (stack.isEmpty()) {
                 System.out.print("-1 ");
             } else {
-                System.out.print(stack.peekLast() + " ");
+                System.out.print(stack.peek() + " ");
             }
-            stack.addLast(i);
+            stack.push(i);
         }
     }
 }
