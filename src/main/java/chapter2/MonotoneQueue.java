@@ -30,33 +30,41 @@ public class MonotoneQueue {
 
     private static void minSlidingWindow(int[] arr, int k) {
         Deque<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < k - 1; i++) {
             while (!queue.isEmpty() && arr[queue.peekLast()] > arr[i]) {
                 queue.pollLast();
             }
-            while (!queue.isEmpty() && i - queue.peekFirst() + 1 > k) {
+            queue.addLast(i);
+        }
+        for (int i = k - 1; i < arr.length; i++) {
+            if (!queue.isEmpty() && i - queue.peekFirst() + 1 > k) {
                 queue.pollFirst();
             }
-            queue.addLast(i);
-            if (i >= k - 1) {
-                System.out.print(arr[queue.peekFirst()] + " ");
+            while (!queue.isEmpty() && arr[queue.peekLast()] > arr[i]) {
+                queue.pollLast();
             }
+            queue.addLast(i);
+            System.out.print(arr[queue.peekFirst()] + " ");
         }
     }
 
     private static void maxSlidingWindow(int[] arr, int k) {
         Deque<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < k - 1; i++) {
             while (!queue.isEmpty() && arr[queue.peekLast()] < arr[i]) {
                 queue.pollLast();
             }
-            while (!queue.isEmpty() && i - queue.peekFirst() + 1 > k) {
+            queue.addLast(i);
+        }
+        for (int i = k - 1; i < arr.length; i++) {
+            if (!queue.isEmpty() && i - queue.peekFirst() + 1 > k) {
                 queue.pollFirst();
             }
-            queue.addLast(i);
-            if (i >= k - 1) {
-                System.out.print(arr[queue.peekFirst()] + " ");
+            while (!queue.isEmpty() && arr[queue.peekLast()] < arr[i]) {
+                queue.pollLast();
             }
+            queue.addLast(i);
+            System.out.print(arr[queue.peekFirst()] + " ");
         }
     }
 }
