@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
  * @author: CyS2020
  * @date: 2021/3/17
  * 描述：双向链表
- * 口诀：先找儿子后找爹，全局边界初为null，边界增删特处理，游标从0k-1
+ * 口诀：添加时先右后左
  */
 public class DynamicBiList {
 
@@ -56,19 +56,21 @@ public class DynamicBiList {
     }
 
     public static void addToHead(int value) {
-        Node newNode = new Node(value, index);
-        newNode.next = head.next;
-        newNode.prev = head;
-        head.next.prev = newNode;
-        head.next = newNode;
+        Node node = new Node(value, index);
+        Node next = head.next;
+        node.next = next;
+        next.prev = node;
+        head.next = node;
+        node.prev = head;
     }
 
     public static void addToTail(int value) {
-        Node newNode = new Node(value, index);
-        newNode.next = tail;
-        newNode.prev = tail.prev;
-        tail.prev.next = newNode;
-        tail.prev = newNode;
+        Node node = new Node(value, index);
+        Node prev = tail.prev;
+        node.next = tail;
+        tail.prev = node;
+        prev.next = node;
+        node.prev = prev;
     }
 
     public static void deleteKth(int k) {
@@ -76,20 +78,23 @@ public class DynamicBiList {
         while (cur.index != k) {
             cur = cur.next;
         }
-        cur.prev.next = cur.next;
-        cur.next.prev = cur.prev;
+        Node prev = cur.prev;
+        Node next = cur.next;
+        prev.next = next;
+        next.prev = prev;
     }
 
     public static void addToKthLeft(int k, int value) {
-        Node cur = tail;
+        Node cur = head;
         while (cur.index != k) {
-            cur = cur.prev;
+            cur = cur.next;
         }
-        Node newNode = new Node(value, index);
-        newNode.next = cur;
-        newNode.prev = cur.prev;
-        cur.prev.next = newNode;
-        cur.prev = newNode;
+        Node node = new Node(value, index);
+        Node left = cur.prev;
+        node.next = cur;
+        cur.prev = node;
+        left.next = node;
+        node.prev = left;
     }
 
     public static void addToKthRight(int k, int value) {
@@ -97,11 +102,12 @@ public class DynamicBiList {
         while (cur.index != k) {
             cur = cur.next;
         }
-        Node newNode = new Node(value, index);
-        newNode.next = cur.next;
-        newNode.prev = cur;
-        cur.next.prev = newNode;
-        cur.next = newNode;
+        Node node = new Node(value, index);
+        Node right = cur.next;
+        node.next = right;
+        right.prev = node;
+        cur.next = node;
+        node.prev = cur;
     }
 
     public static class Node {
