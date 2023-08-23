@@ -8,11 +8,11 @@ import java.io.InputStreamReader;
  * @author: CyS2020
  * @date: 2021/3/29
  * 描述：连通块数量
- * 口诀：递归更新父节点，find三行最核心
+ * 口诀：size的更新要在merge之前进行
  */
 public class UnionFind2 {
 
-    public static int[] ancestor;
+    public static int[] parent;
 
     public static int[] size;
 
@@ -20,10 +20,10 @@ public class UnionFind2 {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         int n = Integer.parseInt(line.split(" ")[0]);
-        ancestor = new int[n + 1];
+        parent = new int[n + 1];
         size = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            ancestor[i] = i;
+        for (int i = 0; i <= n; i++) {
+            parent[i] = i;
             size[i] = 1;
         }
         while ((line = input.readLine()) != null) {
@@ -50,7 +50,7 @@ public class UnionFind2 {
     public static void merge(int a, int b) {
         if (find(a) != find(b)) {
             size[find(b)] += size[find(a)];
-            ancestor[find(a)] = find(b);
+            parent[find(a)] = parent[find(b)];
         }
     }
 
@@ -60,9 +60,9 @@ public class UnionFind2 {
 
     // 路径压缩
     public static int find(int a) {
-        if (ancestor[a] != a) {
-            ancestor[a] = find(ancestor[a]);
+        if (parent[a] != a) {
+            parent[a] = find(parent[a]);
         }
-        return ancestor[a];
+        return parent[a];
     }
 }
