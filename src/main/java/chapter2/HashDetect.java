@@ -44,7 +44,7 @@ public class HashDetect {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         int n = Integer.parseInt(line);
-        HashZipper hash = new HashZipper(n);
+        HashDetect hash = new HashDetect(n);
         while ((line = input.readLine()) != null) {
             String[] arr = line.split(" ");
             String op = arr[0];
