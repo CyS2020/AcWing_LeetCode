@@ -30,9 +30,11 @@ public class SortHeap {
 
     private static void heapSort(int[] arr, int n) {
         int len = n;
+        // 自下而上初始化小根堆
         for (int i = n / 2; i > 0; i--) {
             down(arr, i, n);
         }
+        // 每次取堆顶则为最小值
         for (int i = 0; i < len; i++) {
             swap(arr, 1, n--);
             down(arr, 1, n);
