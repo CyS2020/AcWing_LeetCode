@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/3
  * 描述：最大异或对
- * 口诀：没有条件创造条件也要上
+ * 口诀：以二进制构造数，然后反方向查询
  */
 class LargestXOR {
 
@@ -23,19 +23,19 @@ class LargestXOR {
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         int max = 0;
         for (int i = 0; i < n; i++) {
-            Insert(arr[i]);
+            insert(arr[i]);
             int res = query(arr[i]);
             max = Math.max(max, res ^ arr[i]);
         }
         System.out.println(max);
     }
 
-    public static void Insert(int v) {
+    public static void insert(int v) {
         Node cur = root;
         for (int i = 31; i >= 0; i--) {
             int bit = v >> i & 1;
             if (cur.next[bit] == null) {
-                cur.next[bit] = new Node(bit << i);
+                cur.next[bit] = new Node(bit);
             }
             cur = cur.next[bit];
         }
@@ -52,7 +52,7 @@ class LargestXOR {
             } else {
                 cur = cur.next[bit];
             }
-            res += cur.value;
+            res = res * 2 + cur.value;
         }
         return res;
     }
