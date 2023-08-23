@@ -12,15 +12,15 @@ import java.io.InputStreamReader;
  */
 public class UnionFind {
 
-    public static int[] ancestor;
+    public static int[] parent;
 
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
         int n = Integer.parseInt(line.split(" ")[0]);
-        ancestor = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            ancestor[i] = i;
+        parent = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            parent[i] = i;
         }
         while ((line = input.readLine()) != null) {
             String[] arr = line.split(" ");
@@ -39,16 +39,14 @@ public class UnionFind {
     }
 
     public static void merge(int a, int b) {
-        if (find(a) != find(b)) {
-            ancestor[find(a)] = find(b);
-        }
+        parent[find(a)] = find(b);
     }
 
     // 路径压缩
     public static int find(int a) {
-        if (ancestor[a] != a) {
-            ancestor[a] = find(ancestor[a]);
+        if (parent[a] != a) {
+            parent[a] = find(parent[a]);
         }
-        return ancestor[a];
+        return parent[a];
     }
 }
