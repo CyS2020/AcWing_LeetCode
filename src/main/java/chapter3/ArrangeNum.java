@@ -32,12 +32,12 @@ public class ArrangeNum {
             for (int i = 1; i <= n; i++) {
                 System.out.print(arr[i] + " ");
             }
+            System.out.println();
         }
-
         for (int i = 1; i <= n; i++) {
             if (!st[i]) {
-                arr[u] = i;
                 st[i] = true;
+                arr[u] = i;
                 dfs(u + 1);
                 st[i] = false;
             }
