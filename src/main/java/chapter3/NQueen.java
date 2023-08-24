@@ -10,6 +10,9 @@ import java.util.Arrays;
  * @date: 2021/4/4
  * 描述： n-皇后问题
  * 口诀：深度优先搜索：终止条件+恢复现场
+ * 使用截距表示两个对角线
+ * 正对角线：y = x + b; b = y - x;
+ * 斜对角先：y = -x + b; b = x + y;
  */
 public class NQueen {
 
@@ -48,12 +51,18 @@ public class NQueen {
             System.out.println();
         }
         for (int j = 0; j < n; j++) {
-            if (!col[j] && !dig[n + j - u] && !udig[j + u]) {
-                col[j] = dig[n + j - u] = udig[j + u] = true;
+            int b = j - u + n;
+            int ub = j + u;
+            if (!col[j] && !dig[b] && !udig[ub]) {
                 chess[u][j] = 'Q';
+                col[j] = true;
+                dig[b] = true;
+                udig[ub] = true;
                 dfs(u + 1);
+                udig[ub] = false;
+                dig[b] = false;
+                col[j] = false;
                 chess[u][j] = '.';
-                col[j] = dig[n + j - u] = udig[j + u] = false;
             }
         }
     }
