@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -40,33 +41,28 @@ public class WalkMaze {
     }
 
     public static int bfs(Point start, int[][] maze) {
-        int n = maze.length - 1;
-        int m = maze[0].length - 1;
-        boolean[][] st = new boolean[n + 1][m + 1];
-
-
+        int row = maze.length - 1;
+        int col = maze[0].length - 1;
+        boolean[][] st = new boolean[row + 1][col + 1];
+        Map<Point, Integer> dist = new HashMap<>();
         Queue<Point> queue = new LinkedList<>();
-        Map<Point, Integer> distMap = new HashMap<>();
-        int dist = 0;
-        queue.add(start);
-        distMap.put(start, dist);
-        st[start.x][start.y] = true;
 
+        queue.add(start);
+        dist.put(start, 0);
+        st[start.x][start.y] = true;
         while (!queue.isEmpty()) {
-            Point point = queue.poll();
-            int x = point.x;
-            int y = point.y;
-            if (x == n && y == m) {
-                return distMap.get(point);
+            Point cur = queue.poll();
+            if (cur.x == row && cur.y == col) {
+                return dist.get(cur);
             }
             for (int i = 0; i < 4; i++) {
-                int a = x + dx[i];
-                int b = y + dy[i];
-                if (a >= 0 && b >= 0 && a <= n && b <= m && maze[a][b] != 1 && !st[a][b]) {
-                    Point newPoint = new Point(a, b);
-                    queue.add(newPoint);
-                    distMap.put(newPoint, distMap.get(point) + 1);
-                    st[a][b] = true;
+                int x = cur.x + dx[i];
+                int y = cur.y + dy[i];
+                if (0 <= x && x <= row && 0 <= y && y <= col && maze[x][y] == 0 && !st[x][y]) {
+                    Point next = new Point(x, y);
+                    queue.add(next);
+                    dist.put(next, dist.get(cur) + 1);
+                    st[x][y] = true;
                 }
             }
         }
