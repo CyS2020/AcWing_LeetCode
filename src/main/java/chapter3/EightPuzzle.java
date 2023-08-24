@@ -34,30 +34,30 @@ public class EightPuzzle {
     }
 
     public static int bfs(String start, String end) {
-        int n = (start.length() + 1) / 3;
-
+        int len = 3;
+        Map<String, Integer> dist = new HashMap<>();
         Queue<String> queue = new LinkedList<>();
-        Map<String, Integer> distMap = new HashMap<>();
+
         queue.add(start);
-        distMap.put(start, 0);
+        dist.put(start, 0);
         while (!queue.isEmpty()) {
-            String str = queue.poll();
-            if (str.equals(end)) {
-                return distMap.get(str);
+            String cur = queue.poll();
+            if (cur.equals(end)) {
+                return dist.get(cur);
             }
-            int x = str.indexOf('x');
+            int curLoc = cur.indexOf('x');
             for (int i = 0; i < 4; i++) {
-                StringBuilder sb = new StringBuilder(str);
-                int a = x / n + dx[i];
-                int b = x % n + dy[i];
-                if (a >= 0 && b >= 0 && a < n && b < n) {
-                    int y = a * n + b;
-                    sb.setCharAt(x, str.charAt(y));
-                    sb.setCharAt(y, str.charAt(x));
-                    String newStr = sb.toString();
-                    if (!distMap.containsKey(newStr)) {
-                        queue.add(newStr);
-                        distMap.put(newStr, distMap.get(str) + 1);
+                int a = curLoc / len + dx[i];
+                int b = curLoc % len + dy[i];
+                if (0 <= a && a < len && 0 <= b && b < len) {
+                    int nextLoc = a * len + b;
+                    StringBuilder tmp = new StringBuilder(cur);
+                    tmp.setCharAt(curLoc, tmp.charAt(nextLoc));
+                    tmp.setCharAt(nextLoc, 'x');
+                    String next = tmp.toString();
+                    if (!dist.containsKey(next)) {
+                        queue.add(next);
+                        dist.put(next, dist.get(cur) + 1);
                     }
                 }
             }
