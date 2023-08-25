@@ -29,15 +29,12 @@ public class DijkstraHeap {
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         n = arr[0];
         heads = new Node[n + 1];
-        dist = new int[n + 1];
         st = new boolean[n + 1];
-        Arrays.fill(dist, Integer.MAX_VALUE / 2);
+        dist = new int[n + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
         while ((line = input.readLine()) != null) {
             arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-            int a = arr[0];
-            int b = arr[1];
-            int w = arr[2];
-            addEdge(a, b, w);
+            addEdge(arr[0], arr[1], arr[2]);
         }
 
         int distance = calcShortestPath(1, n);
