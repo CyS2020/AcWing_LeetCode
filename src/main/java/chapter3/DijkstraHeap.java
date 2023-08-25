@@ -66,10 +66,6 @@ public class DijkstraHeap {
         return -1;
     }
 
-    public static int compareTo(int a, int b) {
-        return dist[a] - dist[b];
-    }
-
     public static void addEdge(int a, int b, int w) {
         Node node = new Node(b, w);
         node.next = heads[a];
