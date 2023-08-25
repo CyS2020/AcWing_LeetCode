@@ -54,10 +54,6 @@ public class BellmanFord {
         return dist[dst] >= Integer.MAX_VALUE / 4 ? "impossible" : String.valueOf(dist[dst]);
     }
 
-    public static int compareTo(int a, int b) {
-        return dist[a] - dist[b];
-    }
-
     public static void addEdge(int a, int b, int w) {
         Node node = new Node(b, w);
         node.next = heads[a];
