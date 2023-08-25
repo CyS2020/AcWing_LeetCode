@@ -17,7 +17,6 @@ import java.util.Queue;
 public class DijkstraHeap {
 
     public static int n;
-
     public static Node[] heads;
 
     public static int[] dist;
@@ -46,29 +45,27 @@ public class DijkstraHeap {
     }
 
     private static int calcShortestPath(int src, int dst) {
-        Queue<Integer> queue = new PriorityQueue<>(DijkstraHeap::compareTo);
-        queue.add(src);
+        Queue<Pair> queue = new PriorityQueue<>();
         dist[src] = 0;
+        queue.add(new Pair(src, dist[src]));
 
         while (!queue.isEmpty()) {
-            int t = queue.poll();
-            if (st[t]) {
-                continue;
+            int head = queue.poll().dst;
+            if (head == dst) {
+                return dist[dst];
             }
-            if (t == dst) {
-                break;
-            }
-            st[t] = true;
-            for (Node cur = heads[t]; cur != null; cur = cur.next) {
-                int v = cur.dst;
-                if (dist[t] + cur.weight < dist[v]) {
-                    dist[v] = dist[t] + cur.weight;
-                    queue.add(v);
+            if (!st[head]) {
+                st[head] = true;
+                for (Node cur = heads[head]; cur != null; cur = cur.next) {
+                    int next = cur.dst;
+                    if (dist[next] > dist[head] + cur.weight) {
+                        dist[next] = dist[head] + cur.weight;
+                        queue.add(new Pair(next, dist[next]));
+                    }
                 }
             }
         }
-
-        return dist[dst] == Integer.MAX_VALUE / 2 ? -1 : dist[dst];
+        return -1;
     }
 
     public static int compareTo(int a, int b) {
@@ -89,6 +86,21 @@ public class DijkstraHeap {
         public Node(int dst, int weight) {
             this.dst = dst;
             this.weight = weight;
+        }
+    }
+
+    static class Pair implements Comparable<Pair> {
+        int dst;
+        int dist;
+
+        public Pair(int dst, int dist) {
+            this.dst = dst;
+            this.dist = dist;
+        }
+
+        @Override
+        public int compareTo(Pair o) {
+            return dist - o.dist;
         }
     }
 }
