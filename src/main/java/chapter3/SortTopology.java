@@ -46,25 +46,26 @@ public class SortTopology {
 
     public static List<Integer> sort() {
         Queue<Integer> queue = new LinkedList<>();
-        List<Integer> keep = new LinkedList<>();
+        List<Integer> topo = new LinkedList<>();
 
         for (int i = 1; i <= n; i++) {
             if (degree[i] == 0) {
                 queue.add(i);
-                keep.add(i);
+                topo.add(i);
             }
         }
         while (!queue.isEmpty()) {
             int src = queue.poll();
             for (Node cur = heads[src]; cur != null; cur = cur.next) {
                 int dst = cur.value;
-                if (--degree[dst] == 0) {
+                degree[dst]--;
+                if (degree[dst] == 0) {
                     queue.add(dst);
-                    keep.add(dst);
+                    topo.add(dst);
                 }
             }
         }
-        return keep;
+        return topo;
     }
 
     public static void addEdge(int a, int b) {
