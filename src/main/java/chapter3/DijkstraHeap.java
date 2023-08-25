@@ -17,6 +17,7 @@ import java.util.Queue;
 public class DijkstraHeap {
 
     public static int n;
+
     public static Node[] heads;
 
     public static int[] dist;
