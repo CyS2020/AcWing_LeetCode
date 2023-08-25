@@ -10,6 +10,8 @@ import java.util.Arrays;
  * @date: 2021/4/5
  * 描述：树的重心
  * 口诀：终止条件+恢复现场
+ * dfs返回的是以该节点为根节点的节点数
+ * 排除法得到除去以该节点为根节点的树剩下的节点数 n - sub_sum - 1
  */
 public class TreeGravityCore {
 
@@ -43,9 +45,9 @@ public class TreeGravityCore {
         for (Node cur = heads[u]; cur != null; cur = cur.next) {
             if (!st[cur.value]) {
                 st[cur.value] = true;
-                int union = dfs(cur.value);
-                res = Math.max(res, union);
-                sum += union;
+                int sub = dfs(cur.value);
+                res = Math.max(res, sub);
+                sum += sub;
             }
         }
         res = Math.max(res, n - sum - 1);
