@@ -9,6 +9,7 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/7
  * 描述：弗洛伊德
+ * 口诀：d[k, i, j] 表示从 i 到 j，只经过前 k 个点的最短距离
  */
 public class Floyd {
 
@@ -31,10 +32,7 @@ public class Floyd {
         while (m-- > 0) {
             line = input.readLine();
             arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-            int a = arr[0];
-            int b = arr[1];
-            int w = arr[2];
-            addEdge(a, b, w);
+            addEdge(arr[0], arr[1], arr[2]);
         }
         calcShortestPath();
         while (k-- > 0) {
