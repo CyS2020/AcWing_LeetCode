@@ -35,26 +35,27 @@ public class BinaryPicture {
         boolean isBinary = true;
         for (int i = 1; i <= n; i++) {
             if (color[i] == 0) {
-                color[i] = 1;
-                isBinary = isBinary && dfs(i);
+                if (!dfs(i, 1)) {
+                    isBinary = false;
+                    break;
+                }
             }
         }
         System.out.println(isBinary ? "Yes" : "No");
     }
 
-    public static boolean dfs(int u) {
-        boolean flag = true;
-        int clr = color[u];
+    public static boolean dfs(int u, int c) {
+        color[u] = c;
         for (Node cur = heads[u]; cur != null; cur = cur.next) {
-            int v = cur.dst;
-            if (color[v] == clr) {
+            if (color[cur.dst] == 0) {
+                if (!dfs(cur.dst, 3 - c)) {
+                    return false;
+                }
+            } else if (color[cur.dst] == c) {
                 return false;
-            } else if (color[v] == 0) {
-                color[v] = 3 - clr;
-                flag = flag && dfs(v);
             }
         }
-        return flag;
+        return true;
     }
 
     public static void addEdge(int a, int b) {
