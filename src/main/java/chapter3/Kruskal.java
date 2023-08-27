@@ -17,7 +17,7 @@ public class Kruskal {
 
     public static int n;
 
-    public static int[] ancestor;
+    public static int[] parent;
 
     public static List<Edge> edges;
 
@@ -26,49 +26,44 @@ public class Kruskal {
         String line = input.readLine();
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
         n = arr[0];
-        ancestor = new int[n + 1];
+        parent = new int[n + 1];
         for (int i = 1; i <= n; i++) {
-            ancestor[i] = i;
+            parent[i] = i;
         }
         edges = new ArrayList<>();
         while ((line = input.readLine()) != null) {
             arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-            int a = arr[0];
-            int b = arr[1];
-            int w = arr[2];
-            edges.add(new Edge(a, b, w));
-            //edges.add(new Edge(b, a, w));
+            edges.add(new Edge(arr[0], arr[1], arr[2]));
         }
-        int weights = calcMinTree();
-        System.out.println(weights == -1 ? "impossible" : weights);
+        String weights = calcMinTree();
+        System.out.println(weights);
     }
 
-    public static int calcMinTree() {
+    private static String calcMinTree() {
         Collections.sort(edges);
         int weights = 0;
-        int count = 0;
+        int count = 1;
         for (Edge edge : edges) {
-            int a = edge.src;
-            int b = edge.dst;
-            int w = edge.weight;
-            if (find(a) != find(b)) {
-                weights += w;
+            int src = edge.src;
+            int dst = edge.dst;
+            if (find(src) != find(dst)) {
                 count++;
-                merge(a, b);
+                weights += edge.weight;
+                merge(src, dst);
             }
         }
-        return count < n - 1 ? -1 : weights;
+        return count == n ? String.valueOf(weights) : "impossible";
     }
 
-    public static void merge(int a, int b) {
-        ancestor[find(a)] = find(b);
+    private static void merge(int src, int dst) {
+        parent[find(src)] = parent[find(dst)];
     }
 
-    public static int find(int a) {
-        if (ancestor[a] != a) {
-            ancestor[a] = find(ancestor[a]);
+    private static int find(int src) {
+        if (parent[src] != src) {
+            parent[src] = find(parent[src]);
         }
-        return ancestor[a];
+        return parent[src];
     }
 
     public static class Edge implements Comparable<Edge> {
@@ -84,7 +79,7 @@ public class Kruskal {
 
         @Override
         public int compareTo(Edge o) {
-            return this.weight - o.weight;
+            return weight - o.weight;
         }
     }
 }
