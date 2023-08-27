@@ -83,7 +83,7 @@ public class DijkstraHeap {
         }
     }
 
-    static class Pair implements Comparable<Pair> {
+    public static class Pair implements Comparable<Pair> {
         int dst;
         int dist;
 
