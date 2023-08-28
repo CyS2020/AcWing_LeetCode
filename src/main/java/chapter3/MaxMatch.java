@@ -21,7 +21,7 @@ public class MaxMatch {
 
     public static int res;
 
-    public static int[] match;
+    public static int[] boyfriend;
 
     public static boolean[] st;
 
@@ -33,7 +33,7 @@ public class MaxMatch {
         n2 = arr[1];
         heads = new Node[n1 + 1];
         st = new boolean[n2 + 1];
-        match = new int[n2 + 1];
+        boyfriend = new int[n2 + 1];
         while ((line = input.readLine()) != null) {
             arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
             int a = arr[0];
@@ -43,23 +43,22 @@ public class MaxMatch {
 
         for (int i = 1; i <= n1; i++) {
             Arrays.fill(st, false);
-            if (match(i)) {
+            if (findGirl(i)) {
                 res++;
             }
         }
         System.out.println(res);
     }
 
-    public static boolean match(int u) {
+    public static boolean findGirl(int u) {
         for (Node cur = heads[u]; cur != null; cur = cur.next) {
-            int v = cur.dst;
-            if (st[v]) {
-                continue;
-            }
-            st[v] = true;
-            if (match[v] == 0 || match(match[v])) {
-                match[v] = u;
-                return true;
+            int girl = cur.dst;
+            if (!st[girl]) {
+                st[girl] = true;
+                if (boyfriend[girl] == 0 || findGirl(boyfriend[girl])) {
+                    boyfriend[girl] = u;
+                    return true;
+                }
             }
         }
         return false;
@@ -79,5 +78,4 @@ public class MaxMatch {
             this.dst = dst;
         }
     }
-
 }
