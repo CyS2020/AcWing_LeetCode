@@ -36,9 +36,9 @@ public class BinPackingGroup {
 
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= V; j++) {
-                for (int k = 0; k <= g[i]; k++) {
-                    if (j >= v[i][k]) {
-                        f[i][j] = Math.max(f[i][j], f[i - 1][j - v[i][k]] + w[i][k]);
+                for (int t = 0; t <= g[i]; t++) {
+                    if (j - v[i][t] >= 0) {
+                        f[i][j] = Math.max(f[i][j], f[i - 1][j - v[i][t]] + w[i][t]);
                     }
                 }
             }
