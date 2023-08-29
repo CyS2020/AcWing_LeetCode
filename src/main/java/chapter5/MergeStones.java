@@ -26,7 +26,7 @@ public class MergeStones {
         }
 
         for (int len = 2; len <= N; len++) {
-            for (int l = 1; l <= N - len + 1; l++) {
+            for (int l = 1; l + len - 1 <= N ; l++) {
                 int r = l + len - 1;
                 f[l][r] = Integer.MAX_VALUE;
                 for (int k = l; k < r; k++) {
