@@ -46,6 +46,7 @@ public class SkiingLongest {
     }
 
     private static int skiing(int a, int b) {
+        // 优化避免TLE
         if (f[a][b] != 0) {
             return f[a][b];
         }
