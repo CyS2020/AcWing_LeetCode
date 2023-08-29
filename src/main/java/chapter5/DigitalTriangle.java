@@ -31,7 +31,7 @@ public class DigitalTriangle {
             }
         }
 
-        int res = 0;
+        int res = Integer.MIN_VALUE;
         for (int i = 1; i <= n; i++) {
             res = Math.max(res, f[n][i]);
         }
