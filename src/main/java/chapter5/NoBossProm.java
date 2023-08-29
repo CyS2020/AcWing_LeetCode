@@ -39,7 +39,7 @@ public class NoBossProm {
             addEdge(a, b);
             st[b] = true;
         }
-
+        // 寻找根节点
         int u = 0;
         for (int i = 1; i <= N; i++) {
             if (!st[i]) {
