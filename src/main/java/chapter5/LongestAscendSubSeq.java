@@ -20,8 +20,8 @@ public class LongestAscendSubSeq {
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
 
         int[] f = new int[N];
+        Arrays.fill(f, 1);
         for (int i = 0; i < N; i++) {
-            f[i] = 1;
             for (int k = 0; k < i; k++) {
                 if (arr[k] < arr[i]) {
                     f[i] = Math.max(f[i], f[k] + 1);
