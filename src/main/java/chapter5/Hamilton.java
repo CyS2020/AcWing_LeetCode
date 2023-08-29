@@ -9,7 +9,8 @@ import java.util.Arrays;
  * @author: CyS2020
  * @date: 2021/4/26
  * 描述：Hamilton路径
- * f[i][j] 从0走到j且走过的点状态为i
+ * f[i][j] 从0走到j且走过的点路径为i
+ * 枚举所有路径 path: 1 ~ 1 << n
  */
 public class Hamilton {
 
@@ -36,11 +37,13 @@ public class Hamilton {
         f[1][0] = 0;
         for (int i = 1; i < 1 << n; i++) {
             for (int j = 0; j < n; j++) {
-                if ((i >> j & 1) == 1) {
+                boolean passJ = (i >> j & 1) == 1;
+                if (passJ) {
                     for (int k = 0; k < n; k++) {
-                        // 从不经过j但是经过k的点转移过来
-                        if ((i - (1 << j) >> k & 1) == 1) {
-                            f[i][j] = Math.min(f[i][j], f[i - (1 << j)][k] + w[k][j]);
+                        int path = i - (1 << j);
+                        boolean passK = (path >> k & 1) == 1;
+                        if (passK) {
+                            f[i][j] = Math.min(f[i][j], f[path][k] + w[k][j]);
                         }
                     }
                 }
