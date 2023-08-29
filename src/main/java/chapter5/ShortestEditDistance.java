@@ -31,7 +31,7 @@ public class ShortestEditDistance {
         }
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= M; j++) {
-                f[i][j] = Math.min(f[i][j - 1] + 1, f[i - 1][j] + 1);
+                f[i][j] = Math.min(f[i - 1][j] + 1, f[i][j - 1] + 1);
                 if (a.charAt(i - 1) == b.charAt(j - 1)) {
                     f[i][j] = Math.min(f[i][j], f[i - 1][j - 1]);
                 } else {
