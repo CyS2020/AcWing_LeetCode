@@ -30,27 +30,37 @@ public class IntervalCover {
         }
 
         Collections.sort(intervals);
+        System.out.println(cover(st, ed, intervals));
+    }
 
-        int cur = Integer.MIN_VALUE;
+    public static int cover(int st, int ed, List<Pair> intervals) {
+        if (st == ed) {
+            for (Pair pair : intervals) {
+                if (pair.left <= st && pair.right >= ed) {
+                    return 1;
+                }
+            }
+        }
         int res = 0;
-        int i;
+        int i = 0;
+        int cur = st;
         while (cur < ed) {
-            for (i = 0; i < intervals.size(); i++) {
+            while (i < intervals.size()) {
                 Pair pair = intervals.get(i);
                 if (pair.left <= st) {
                     cur = Math.max(cur, pair.right);
                 } else {
                     break;
                 }
+                i++;
             }
             if (cur == st) {
-                res = -1;
-                break;
+                return -1;
             }
             st = cur;
             res++;
         }
-        System.out.println(res);
+        return res;
     }
 
     public static class Pair implements Comparable<Pair> {
