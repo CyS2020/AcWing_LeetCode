@@ -36,8 +36,8 @@ public class IntervalGroup {
                 queue.poll();
                 queue.add(pair.right);
             } else {
-                queue.add(pair.right);
                 res++;
+                queue.add(pair.right);
             }
         }
         System.out.println(res);
