@@ -17,7 +17,7 @@ public class Huffman {
     public static void main(String[] args) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         String line = input.readLine();
-        int N = Integer.parseInt(line);
+        int N = Integer.parseInt(line.trim());
         line = input.readLine();
         int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
 
