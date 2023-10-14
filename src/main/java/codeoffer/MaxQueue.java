@@ -29,11 +29,11 @@ class MaxQueue {
     }
 
     public void push_back(int value) {
-        queue.offer(value);
+        queue.add(value);
         while (!deque.isEmpty() && deque.peekLast() < value) {
             deque.pollLast();
         }
-        deque.offerLast(value);
+        deque.addLast(value);
     }
 
     public int pop_front() {
