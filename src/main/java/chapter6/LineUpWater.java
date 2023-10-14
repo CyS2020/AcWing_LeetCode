@@ -22,7 +22,7 @@ public class LineUpWater {
         Arrays.sort(arr);
         long res = 0;
         for (int i = 0; i < N; i++) {
-            res += arr[i] * (N - i - 1);
+            res += (long) arr[i] * (N - i - 1);
         }
         System.out.println(res);
     }

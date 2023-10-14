@@ -14,6 +14,7 @@ import java.util.Queue;
  * @author: CyS2020
  * @date: 2021/4/29
  * 描述：区间分组--使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。
+ * 优先队列保存的是分组右端点；left > Min (max1, max2, max3); 则可以放在当前分组中
  */
 public class IntervalGroup {
 
@@ -36,8 +37,8 @@ public class IntervalGroup {
                 queue.poll();
                 queue.add(pair.right);
             } else {
-                queue.add(pair.right);
                 res++;
+                queue.add(pair.right);
             }
         }
         System.out.println(res);
