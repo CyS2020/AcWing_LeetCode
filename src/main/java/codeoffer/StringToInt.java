@@ -9,10 +9,8 @@ package codeoffer;
 public class StringToInt {
 
     public int strToInt(String str) {
+        str = str.trim();
         int k = 0;
-        while (k < str.length() && str.charAt(k) == ' ') {
-            k++;
-        }
         boolean minus = false;
         if (k < str.length() && str.charAt(k) == '+') {
             k++;
