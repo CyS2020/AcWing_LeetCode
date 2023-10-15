@@ -10,7 +10,7 @@ import java.util.List;
  * @date: 2021/5/23
  * 描述：二叉树中和为某一值的路径
  */
-public class TreeTarget {
+public class TreePathSumII {
 
     List<List<Integer>> res = new ArrayList<>();
 
