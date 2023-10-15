@@ -8,48 +8,32 @@ package codeoffer;
  */
 public class TreeToBiList {
 
+    Node pre;
+    Node head;
+
     public Node treeToDoublyList(Node root) {
         if (root == null) {
             return null;
         }
-        Pair res = dfs(root);
-        res.left.left = res.right;
-        res.right.right = res.left;
-        return res.left;
+        dfs(root);
+        head.left = pre;
+        pre.right = head;
+        return head;
     }
 
-    public Pair dfs(Node root) {
-        if (root.left == null && root.right == null) {
-            return new Pair(root, root);
-        } else if (root.left != null && root.right != null) {
-            Pair l = dfs(root.left);
-            Pair r = dfs(root.right);
-            l.right.right = root;
-            r.left.left = root;
-            root.left = l.right;
-            root.right = r.left;
-            return new Pair(l.left, r.right);
-        } else if (root.left != null) {
-            Pair l = dfs(root.left);
-            l.right.right = root;
-            root.left = l.right;
-            return new Pair(l.left, root);
+    public void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        if (pre != null) {
+            pre.right = root;
         } else {
-            Pair r = dfs(root.right);
-            r.left.left = root;
-            root.right = r.left;
-            return new Pair(root, r.right);
+            head = root;
         }
-    }
-
-    public class Pair {
-        Node left;
-        Node right;
-
-        public Pair(Node left, Node right) {
-            this.left = left;
-            this.right = right;
-        }
+        root.left = pre;
+        pre = root;
+        dfs(root.right);
     }
 
     public static class Node {
