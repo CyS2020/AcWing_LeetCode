@@ -8,7 +8,7 @@ import base.TreeNode;
  * 描述：二叉搜索树的第k大节点
  * 思路：从大到小的中序遍历，如果是第k小的数则就是正常中序遍历
  */
-public class KthListNode {
+public class TreeKthNode {
 
     public int k, res;
 
