@@ -31,10 +31,14 @@ public class TreeBuild {
             return null;
         }
         int rootVal = preorder[preLeft];
-        int rootLoc = index.get(preorder[preLeft]);
-        int leftLen = rootLoc - inLeft;
-        TreeNode leftNode = dfs(preLeft + 1, preLeft + leftLen, inLeft, rootLoc - 1);
-        TreeNode rightNode = dfs(preLeft + leftLen + 1, preRight, rootLoc + 1, inRight);
-        return new TreeNode(rootVal, leftNode, rightNode);
+        TreeNode node = new TreeNode(rootVal);
+
+        int loc = index.get(preorder[preLeft]);
+        int len = loc - inLeft;
+        TreeNode leftNode = dfs(preLeft + 1, preLeft + len, inLeft, loc - 1);
+        TreeNode rightNode = dfs(preLeft + len + 1, preRight, loc + 1, inRight);
+        node.left = leftNode;
+        node.right = rightNode;
+        return node;
     }
 }
