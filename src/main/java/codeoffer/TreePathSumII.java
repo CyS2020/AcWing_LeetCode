@@ -34,4 +34,16 @@ public class TreePathSumII {
         dfs(root.right, target);
         path.remove(path.size() - 1);
     }
+
+    // 仅判断是否有路径无需返回路径
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
+        }
+        if (targetSum == root.val && root.left == null && root.right == null) {
+            return true;
+        }
+        int left = targetSum - root.val;
+        return hasPathSum(root.left, left) || hasPathSum(root.right, left);
+    }
 }
