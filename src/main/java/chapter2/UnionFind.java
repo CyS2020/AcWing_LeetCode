@@ -39,7 +39,9 @@ public class UnionFind {
     }
 
     public static void merge(int a, int b) {
-        parent[find(a)] = parent[find(b)];
+        int pa = find(a);
+        int pb = find(b);
+        parent[pa] = parent[pb];
     }
 
     // 路径压缩
